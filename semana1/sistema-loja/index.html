@@ -5,33 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nvidia Store</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fb98fc5939.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div>
-        <h1>Bem-vind@ ao <em>Nvidia Store</em>!</h1>
-        <p>A loja oficial da Nvidia</p>
-    </div>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html">Página Inicial</a></li>
+                <li class="nav__item"><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+                <li class="nav__item"><a href="add-produto.html">Adicionar Produto</a></li>
+                <li class="nav__item"><a href="funcionarios.html">Funcionários</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main">
+        <h1 class="main__title">Bem-vind@ ao <span class="main__logo"><span class="main__brand">Nvidia®</span> Store<i class="fas fa-shopping-cart"></i></span>!</h1>
+        <h2 class="main__subtitle">A loja oficial da Nvidia</h2>
 
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
+        <section class="about-us">
+            <h2 class="about-us__title">A loja Nvidia Store é a loja autorizada pela Nvidia.</h2>
+            <h2 class="about-us__subtitle">Faça a pré-compra de produtos da nova geração de placas de vídeo Nvidia Geforce RTX 3000.</h2>
+        </section>
 
-    <div>
-        <p>A loja Nvidia Store é a loja autorizada pela Nvidia.</p>
-        <p>Faça a pré-compra de produtos da nova geração de placas de vídeo Nvidia Geforce RTX 3000.</p>
-    </div>
+        <section class="follow-us">
+            <h2 class="follow-us__subtitle">Siga-nos nas redes sociais!</h2>
 
-    <div>
-        <p>Siga-nos nas redes sociais!</p>
-
+            <div class="follow-us__icons">
+                <i class="follow-us__icon fab fa-facebook"></i>
+                <i class="follow-us__icon fab fa-youtube"></i>
+                <i class="follow-us__icon fab fa-twitter"></i>
+                <i class="follow-us__icon fab fa-instagram"></i>
+                <!-- <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+                <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+                <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/> -->
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
         <div>
-            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+            <span class="main__logo"><span class="main__brand">Nvidia®</span> Store<i class="fas fa-shopping-cart"></i></span>
         </div>
-    </div>
+
+        <ul class="footer__menu">
+            <li class="footer__item"><a href=""></a>Nvidia Store© 2020. Todos os direitos reservados</li>
+            <li class="footer__item"><a href=""></a>Termos e condições</li>
+            <li class="footer__item"><a href=""></a>Política de privacidade</li>
+        </ul>
+
+        <ul class="footer__menu">
+            <li class="footer__item"><a href=""></a></li>
+            <li class="footer__item"><a href=""></a></li>
+            <li class="footer__item"><a href=""></a></li>
+        </ul>
+    </footer>
 </body>
 </html>
