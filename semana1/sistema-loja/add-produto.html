@@ -1,51 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Adicionar Produto</title>
+    <title>Funcionários da Nvidia Store</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fb98fc5939.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div>
-        <p>Nvidia Store</p>
-    </div>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html">Página Inicial</a></li>
+                <li class="nav__item"><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+                <li class="nav__item"><a href="add-produto.html">Adicionar Produto</a></li>
+                <li class="nav__item"><a href="funcionarios.html">Funcionários</a></li>
+            </ul>
+        </nav>
+
+    </header>
     
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
-
+    <main class="main">
+        <h2>Adicionar Produto</h2>
+        <form action="">
+            <div>
+                <label for="link-foto">Link para foto: </label>
+                <input type="url" id="link-foto" name="link-foto">
+            </div>
+            
+            <div>
+                <label for="descricao">Descrição do produto: </label>
+                <input type="text" id="descricao" name="descrição">
+            </div>
+            
+            <div>
+                <label for="preco">Preço (em R$): </label>
+                <input type="number" id="preco" name="preço">
+            </div>
+            
+            <div>
+                <label for="quantidade">Quantidade disponível: </label>
+                <input type="number" id="quantidade">
+            </div>
     
-    <h2>Adicionar Produto</h2>
-    <form action="">
+            <div class="form-add">
+                <button type="submit">Adicionar</button>
+            </div>
+    
+        </form>
+        </section>
+    </main>
+    <footer class="footer">
         <div>
-            <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
-        </div>
-        
-        <div>
-            <label for="descricao">Descrição do produto: </label>
-            <input type="text" id="descricao" name="descrição">
-        </div>
-        
-        <div>
-            <label for="preco">Preço (em R$): </label>
-            <input type="number" id="preco" name="preço">
-        </div>
-        
-        <div>
-            <label for="quantidade">Quantidade disponível: </label>
-            <input type="number" id="quantidade">
+            <span class="main__logo"><span class="main__brand">Nvidia®</span> Store<i class="fas fa-shopping-cart"></i></span>
         </div>
 
-        <div class="form-add">
-            <button type="submit">Adicionar</button>
-        </div>
+        <ul class="footer__menu">
+            <li class="footer__item"><a href=""></a>Nvidia Store© 2020. Todos os direitos reservados</li>
+            <li class="footer__item"><a href=""></a>Termos e condições</li>
+            <li class="footer__item"><a href=""></a>Política de privacidade</li>
+        </ul>
 
-    </form>
-
+        <ul class="footer__menu">
+            <li class="footer__item"><a href=""></a></li>
+            <li class="footer__item"><a href=""></a></li>
+            <li class="footer__item"><a href=""></a></li>
+        </ul>
+    </footer>
 </body>
 </html>
