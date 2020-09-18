@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    background: darkcyan;
+}
+
+.header__title {
+    text-align: center;
+}
+
+.header__subtitle {
+    text-align: center;
+}
+
+.nav {
+    width: 100%;
+    display: block;
+}
+
+.nav__menu {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.nav__item {
+    padding: 15px;
+    display: inline-block;
+}
+
+.nav__item:hover {
+}
+
+.nav__item:active {
+}
+
+/* Mudar dps */
+
+a {
+    color: white;
+}
+
+/* Mudar dps */
+
+.about-us {
+
+}
+
+.about-us__title {
+    text-align: center;
+}
+
+.about-us__subtitle {
+    text-align: center;
+}
+
+.follow-us {
+
+}
+
+.follow-us__icons {
+
+}
+
+.footer {
+
+}
+
+.footer__menu {
+
+}
+
+.footer__item {
+
+}
