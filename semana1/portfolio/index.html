@@ -4,30 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Raleway:ital,wght@0,400;1,200&family=Titillium+Web:ital,wght@0,300;1,200&display=swap" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <!-- <header class="header"> -->
-            <nav class="header__nav">
-                <div class="header__icon">
-                    <div class="header__lines">
-                        
-                    </div>
+    <!-- <div class="container"> -->
+        <header class="header">
+            <div class="header__icon">
+                <div class="header__lines">
                 </div>
-                
-                <ul class="header__menu">
-                    <li class="header__item">Sobre mim</li>
-                    <li class="header__item">Experiência</li>
-                    <li class="header__item">Projetos</li>
-                    <li class="header__item">Contato</li>
-                </ul>
-            </nav>
-            <!-- </header> -->
+                <div class="header__bg">
+
+                </div>
+                <nav class="header__nav">
+                    
+                    <ul class="header__menu">
+                        <li class="header__item"><a href="#" class="href">Sobre mim</a></li>
+                        <li class="header__item"><a href="#" class="href">Experiência</a></li>
+                        <li class="header__item"><a href="#" class="href">Projetos</a></li>
+                        <li class="header__item"><a href="#" class="href">Habilidades</a></li>
+                        <li class="header__item"><a href="#" class="hre">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
             <h1>Portfólio</h1>
 
-        <main>
+            <div class="main__go-down">
+            </div>
+        </header>
+            <main>
+                <section class="main__aboutme">
+                    <h2>Sobre mim</h2>
+
+                    <div class="aboutme__bio">
+                        <div class="about__photo">
+                            <img src="../foto.jpg" alt="">
+                        </div>
+
+                        <div class="about__text">
+                            <p>Sou desenvolvedor web full stack, atuo tanto no código da parte front end quanto do backend. Para mim, é importante entender as outras etapas e processos anteriores e posteriores ao seu, para que assim, você possa fazer o melhor trabalho para as outras áreas da aplicação web. </p>
+                        </div>
+                    </div>
+            </section>
+
             <section>
                 <h2>Sobre mim</h2>
 
@@ -37,72 +57,75 @@
                     </div>
 
                     <div>
-                        <p>Sou desenvolvedor web...</p>
+                        <p>texto</p>
                     </div>
+                </div>
+                            
+                <div class="main__go-down">
                 </div>
             </section>
 
-            <section>
+            <section class="main__exp">
                 <h2>Experiência</h2>
 
-                <h3>Labenu</h3>
+                <div class="exp__labenu">
+                <p>Na Labenu, eu fui capaz de desenvolver vários projetos ricos e proveitosos para mim. A Labenu me deu tanto a teoria quanto a prática. A cada semana era um trabalho diferente a ser feito e, um novo aprendizado para a minha carreira.<p>
+                <img src="../labenu.png" alt="">
 
-                <p>Na Labenu...</p>
+                </div>
             </section>
             
             <section>
                 <h2>Projetos</h2>
 
-                <div>
-                    <h3>Projeto1</h3>
+                <div class="projects__list">
+                    <div>
+                        <h3>Projeto1</h3>
 
-                    <p>DOJOASOAS</p>
-                </div>
+                        <p>DOJOASOAS</p>
+                    </div>
 
-                <div>
-                    <h3>Projeto1</h3>
+                    <div>
+                        <h3>Projeto1</h3>
 
-                    <p>DOJOASOAS</p>
-                </div>
-                
-                <div>
-                    <h3>Projeto1</h3>
+                        <p>DOJOASOAS</p>
+                    </div>
+                    
+                    <div>
+                        <h3>Projeto1</h3>
 
-                    <p>DOJOASOAS</p>
+                        <p>DOJOASOAS</p>
+                    </div>
                 </div>
             </section>
             
-            <section>
+            <section class="main__skills">
                 <h2>Habilidades</h2>
 
-                <div>
+                <div class="skills__list">
+                    <div class="skills__item">
+                        <img src="../css3.png" alt="">
+                        <p>Conhecimento em CSS3, a versão mais recente do CSS. Aproveitando os simples mas poderosos grid e flexbox. Além do uso da metodologia BEM.</p>
+                    </div>
+                    
+                
+                <div class="skills__item">
                     <div>
-                        foto
+                        <img src="../html.png" alt="">
+                        <p>HTML5, criando uma estrutura consistente, e cuidando, também, da semântica de sua estrutura. </p>
+                    </div>
+                    
+                </div>
+                
+                <div class="skills__item">
+                    <div>
+                        <img src="../js.jpg" alt="">
+                        <p>Javascript, com a versão mais utilizada e consolidada Ecmascript 6, trago as melhores práticas de codificação em ES6.</p>
                     </div>
 
-                    <p>Texto</p>
                 </div>
-                <div>
-                    <div>
-                        foto
-                    </div>
+            </div>
 
-                    <p>Texto</p>
-                </div>
-                <div>
-                    <div>
-                        foto
-                    </div>
-
-                    <p>Texto</p>
-                </div>
-                <div>
-                    <div>
-                        foto
-                    </div>
-
-                    <p>Texto</p>
-                </div>
             </section>
 
             <section>
@@ -117,9 +140,41 @@
                         <li>Tt</li>
                         <li>It</li>
                     </ul>
+
+                    <h3>Contate-me</h3>
+
+                    <form class="form">
+                        <div class="form__item">
+                            <label for="name">
+
+                            </label>
+                            <input class="form__input" type="text" id="name">
+
+                            <label for="email">
+
+                            </label>
+                            <input class="form__input" type="email" id="email">
+
+                            <label for="subject">
+
+                            </label>
+                            <input class="form__input" type="text" id="subject">
+                        </div>
+
+                        <div class="form__item">
+
+                            <div class="form__area">
+                                <textarea>
+                                    
+                                </textarea>
+                        </div>
+                    </form>
                 </div>
             </section>
+            <!-- <div class="main__go-up"></div> -->
         </main>
-    </div>
+    <!-- </div> -->
+    <script src="js/script.js">
+    </script>
 </body>
 </html>
