@@ -73,6 +73,12 @@ div img {
     box-sizing: border-box;
 }
 
+#container-de-descricao p{
+    width: 190px;
+    display: block;
+    margin: auto;
+}
+    
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
