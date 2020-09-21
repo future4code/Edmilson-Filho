@@ -11,7 +11,7 @@
 
 h2 {
     background-color: #fe7e02;
-    padding: 20px;
+    padding: 10px 5px 10px 5px;
     color: white;
     text-align: center;
 }
@@ -83,10 +83,6 @@ div img {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
-}
-
-#container-para-comprar > a {
-    display: block;
 }
 
 
