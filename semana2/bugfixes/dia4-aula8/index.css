@@ -75,13 +75,18 @@ div>p:first-child {
 }
 
 #container-de-descricao p{
-    width: 190px;
+    width: 195px;
     display: block;
     margin: auto;
 }
     
 #container-de-descricao>ol {
     padding: 15px 0px;
+    display: inline-block;
+}
+
+li {
+    padding: 0 0 0 15px;
 }
 
 #container-para-comprar {
