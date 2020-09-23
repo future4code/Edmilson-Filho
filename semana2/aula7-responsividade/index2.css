@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid: 1fr 9fr/auto;
+    height: 100%;
+}
+
+.tag-mae {
+    display: grid;
+    grid: 2fr 2fr 3fr 1fr 1fr/1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    grid-gap: 2%;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.tag-mae div {
+    border: 1px solid black;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .tag-mae {
+        background-color: blue;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+}
+
+@media screen and (min-device-width: 1201px) {
+
+}
+
+.mae__secao-vermelha {
+    background: red;
+    /* grid-area: 1 / 1 / 2 / 4; */
+}
+
+.mae__secao-azul {
+    background: blue;
+}
+
+
+.mae__secao-preta {
+    background: black;
+}
+
+.mae__secao-azul-1 {
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.mae__secao-azul-2 {
+    grid-area: 2 / 1 / 2 / 3;
+}
+
+
+.mae__secao-preta-1 {
+    grid-area: 3 / 1 / 4 / 4;
+}
+
+.mae__secao-preta-2 {
+    grid-area: 3 / 4 / 4 / 7;
+}
+
+.mae__secao-amarela {
+    background: yellow;
+}
+
+.mae__secao-amarela-1 {
+    background: yellow;
+    grid-area: 1 / 3 / 2 / 5;
+}
+
+.mae__secao-amarela-2 {
+    background: yellow;
+    grid-area: 2 / 3 / 3 / 5;
+}
+
+.mae__secao-branca {
+    background: white;
+}
+
+.mae__secao-verde {
+    background: green;
+    grid-area: 1 / 5 / 2 / 7;
+}
+
+.mae__secao-verde-1 {
+    background: green;
+    grid-area: 1 / 5 / 2 / 7;
+}
+
+.mae__secao-verde-2 {
+    background: green;
+    grid-area: 2 / 5 / 3 / 7;
+}
