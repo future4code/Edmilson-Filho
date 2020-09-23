@@ -1,0 +1,267 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #e6e6e6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    display: grid;
+    grid: auto/25% 47% 25%;
+    grid-gap: 1.5%;
+}
+
+.header {
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-top: 3px solid blue;
+    display: grid;
+    grid: auto/max-content max-content;
+    grid-area: 1 / 1 / 2 / 4;
+    background: white;
+}
+
+.header__start {
+    display: flex;
+}
+
+.aside__menu {
+    list-style: none;
+    padding: 0 0 20px 40px;
+}
+
+.aside__item:first-child {
+    font-weight: bold;
+}
+
+.aside__item {
+    padding: 20px 0;
+}
+
+.aside__item:last-child {
+    color: grey;
+}
+
+.aside__menu-tag {
+    list-style: none;
+}
+
+.tag-menu__title {
+    padding: 0;
+}
+
+.main__nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 15px 0;
+}
+
+.main__desc {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.main__menu {
+    display: grid;
+    grid: auto/repeat(auto-fit, minmax(min-content, 30px));
+    width: 70%;
+    list-style: none;
+    grid-gap: 7%;
+    margin: 0;
+    color: #4a4a4a;
+}
+
+.aside-right__author {
+    color: #737373;
+    display: block;
+    margin: 5px 0 0 0;
+}
+
+.main__author-img {
+    clip-path: circle(15px);
+    width: 60px;
+    height: 30px;
+}
+
+.main__author {
+    display: flex;
+    padding: 15px 0;
+}
+
+.main__item:first-child {
+    border-bottom: 3px solid blue;
+    padding: 0 0 5px 0;
+    color: black;
+    font-weight: bold;
+}
+
+.main__author-date {
+    color: #828282;
+    font-size: 14px;
+}
+
+.aside-right__bottom {
+    border-top: 1px solid #f3f3f3;
+    padding: 10px 0 0 0;
+    margin: 0;
+}
+
+.main__post-info {
+    padding: 0 0 0 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main__post-title {
+    font-size: 32px;
+}
+
+.main__post-save {
+    display: flex;
+    align-items: center;
+}
+
+.main__post {
+    padding: 15px;
+}
+
+.aside-right__create-new {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+.main__content {
+    background: white;
+    border-radius: 10px;
+}
+
+.tag-menu__item {
+    color: gray;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 20px 0;
+}
+
+.header__logo {
+    background: black;
+    max-width: 55px;
+    border-radius: 4px;
+    
+    margin: 0 15px 0 0;
+}
+
+.aside-right {
+    display: grid;
+    grid: min-content min-content/auto;
+    grid-gap: 20px;
+    margin: 0 15px 0 0;
+}
+
+.aside-right__legend {
+    font-size: 24px;
+    margin: 0;
+}
+
+.aside-right__top {
+    padding: 0 0 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aside-right__title {
+    font-weight: bold;
+}
+
+.aside-right__see-all {
+    text-decoration: none;
+}
+
+.aside-right__list {
+    list-style: none;
+    padding: 0;
+}
+
+.aside-right__item {
+    border-bottom: 1px solid #f3f3f3;
+    padding: 0 0 15px 0;
+}
+
+.aside-right__text {
+    font-size: 17px;
+    margin: 5px 0 15px 0;
+}
+
+.aside-right__about {
+    background: white;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.aside-right__listings {
+    background: white;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.aside-right__create {
+    text-align: center;
+    background: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.aside-right__log-in {
+    color: blue;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.header__input {
+    background: #f7f7f7;
+    padding: 5px;
+    border: 2px solid #d8d8d8;
+    border-radius: 4px;
+}
+
+.header__logo-name {
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.header__account {
+    display: flex;
+    align-items: center;
+}
+
+.account {
+    display: flex;
+}
+
+.account__log-in {
+    color: blue;
+    padding: 10px 15px;
+}
+
+.account__create {
+    background: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.header__start {
+    
+}
+
+.header {
+    
+}
