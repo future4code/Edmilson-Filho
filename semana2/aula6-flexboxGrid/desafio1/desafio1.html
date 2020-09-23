@@ -5,128 +5,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="exercicio3a.css">
+    <link rel="stylesheet" type="text/css" href="desafio1.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div id="main-container">
-        <header>
-            <div>
-                <div>Dev</div>
+    <div class="container">
+        <header class="header">
+            <div class="header__start">
+                <div class="header__logo">
+                    <div class="header__logo-name">Dev</div>
+                </div>
+                <input class="header__input" type="text" placeholder="Search">
             </div>
 
-            <input type="text" placeholder="search">
             
-            <nav>
-                <div>Write a post</div>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </nav>
+            <div class="header__account">
+                <div class="account__log-in">
+                    Log in
+                </div>
+
+                <div class="account__create">
+                    Create account
+                </div>
+            </div>
         </header>
 
-        <aside>
-            <nav>
-                <ul>
-                    <li>Sign In/Up</li>
-                    <li>Listings</li>
-                    <li>Podcasts</li>
-                    <li>Videos</li>
-                    <li>Tags</li>
-                    <li>More...</li>
+        <aside class="aside">
+            <nav class="aside__nav">
+                <ul class="aside__menu">
+                    <li class="aside__item">Sign In/Up</li>
+                    <li class="aside__item">Listings</li>
+                    <li class="aside__item">Podcasts</li>
+                    <li class="aside__item">Videos</li>
+                    <li class="aside__item">Tags</li>
+                    <li class="aside__item">More...</li>
                 </ul>
 
-                <ul>
-                    <h5>design your experience</h5>
-                    <li>#javascript</li>
-                    <li>#webdev</li>
-                    <li>#beginners</li>
-                    <li>#discuss</li>
-                    <li>#career</li>
-                    <li>#tutorial</li>
-                    <li>#productivity</li>
-                    <li>#python</li>
-                    <li>#css</li>
-                    <li>#node</li>
-                    <li>#devops</li>
-                    <span>Visit all-time top tags</span>
+                <ul class="aside__tag-menu">
+                    <h5 class="tag-menu__title tag-menu__item">design your experience</h5>
+                    <li class="tag-menu__item">#javascript</li>
+                    <li class="tag-menu__item">#webdev</li>
+                    <li class="tag-menu__item">#beginners</li>
+                    <li class="tag-menu__item">#discuss</li>
+                    <li class="tag-menu__item">#career</li>
+                    <li class="tag-menu__item">#tutorial</li>
+                    <li class="tag-menu__item">#productivity</li>
+                    <li class="tag-menu__item">#python</li>
+                    <li class="tag-menu__item">#css</li>
+                    <li class="tag-menu__item">#node</li>
+                    <li class="tag-menu__item">#devops</li>
+                    <span class="">Visit all-time top tags</span>
                 </ul>
             </nav>    
         </aside>
 
-        <main>
-            <nav>
-                <span>Posts</span>
-                <ul>
-                    <li>Feed</li>
-                    <li>Week</li>
-                    <li>Month</li>
-                    <li>Year</li>
-                    <li>Infinity</li>
-                    <li>Latest</li>
+        <main class="">
+            <nav class="main__nav">
+                <span class="main__desc">Posts</span>
+                <ul class="main__menu">
+                    <li class="">Feed</li>
+                    <li class="">Week</li>
+                    <li class="">Month</li>
+                    <li class="">Year</li>
+                    <li class="">Infinity</li>
+                    <li class="">Latest</li>
                 </ul>
-            </nav>
+            </nav class="">
 
-            <div>
-                <div>
-                    
+            <div class="main__content">
+                <div class="">
+                    <img src="img/post_img.jpg">
                 </div>
-
-                <div>
-                    <h2>The Ultimate Guide to Web Perfomance</h2>
-                    <div>
-                        <div>
-                            
+                
+                <div class="main__post">
+                    <div class="main__author">
+                        <div class="main__author-img">
+                            <img src="img/post_img.jpg">
                         </div>
 
-                        <span>SeattleDataGuy</span>
-                        <span>Sep 15 (6 hours ago)</span>
-                        <div>#career #beginners #sql #python</div>
+                        <div class="main__author-info">
+                            <div class="main__author-name">
+                                ender minyard
+                            </div>
+
+                            <div class="main__author-date">
+                                Sep 22
+                            </div>
+                        </div>
                     </div>
-
-                    <div>
-                        <div>
-                            
-                        </div>
+                    
+                    <div class="main__post-info">
+                        <h2 class="main__post-title">The Ultimate Guide to Web Perfomance</h2>
                         
-                        <div>
+                        <div class="">
+                            <div class="">
+                                
+                            </div>
 
+                            <span class="">SeattleDataGuy</span>
+                            <span class="">Sep 15 (6 hours ago)</span>
+                            <div class="">#career #beginners #sql #python</div>
                         </div>
 
-                        <span>5 min read</span>
+                        <div class="main__post-save">
+                            <div class="">
+                                
+                            </div>
+                            
+                            <div class="">
 
-                        <div>
-                            Save
+                            </div>
+
+                            <span class="">5 min read</span>
+
+                            <div class="">
+                                Save
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <aside>
-            <div>
-                <h3>
-                    DEV is a community of 463,642 amazing developers
-                </h3>
-                <p>We're a place where coders share, stay up-to-date and grow their careers.</p>
+        <aside class="aside-right">
+
+            <div class="aside-right__about">
+                <div class="">
+                    <h3 class="aside-right__legend">
+                        DEV is a community of 463,642 amazing developers
+                    </h3>
+                    <p class="aside-right__text">We're a place where coders share, stay up-to-date and grow their careers.</p>
+                </div>
+
+                <div class="aside-right__create">Create new account</div>
+                <div class="aside-right__log-in">Log in</div>
             </div>
-
-            <div>Create new account</div>
-            <div>Log in</div>
             
-            <div>
-                <span>Listings</span>
-                <span>See all</span>
+            <div class="aside-right__listings">
+                <div class="aside-right__top">
+                    <span class="aside-right__title">Listings</span>
+                    <span><a href="#" class="aside-right__see-all">See all</a></span>
+                </div>
 
-                <ul>
-                    <li>Tails - Beautify open-source</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul class="aside-right__list">
+                    <li class="aside-right__item">
+                        <span>Tails - Beautify open-source</span>
+                        <span class="aside-right__author">collabs</span>
+                    </li>
+                    <li class="aside-right__item"></li>
+                    <li class="aside-right__item"></li>
+                    <li class="aside-right__item"></li>
                 </ul>
+
+                <div class="aside-right__bottom">
+                    <h6 class="aside-right__create-new">Create a Listing</h6>
+                </div>
             </div>
         </aside>
     </div>
