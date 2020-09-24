@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    height: 1000px;
+}
+
+.tag-mae {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.tag-mae > div {
+    flex-grow: 1;
+}
+
+.tag-mae div > div {
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.flex-2-colunas, .flex-3-colunas {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 0 10px 0;
+}
+
+.flex-2-colunas div, .flex-3-colunas div {
+    display: flex;
+}
+
+.secao-preta {
+    background: black;
+    color: white;
+}
+
+.secao-branca {
+    background: white;
+}
+
+.secao-vermelha {
+    background: red;
+}
+
+.secao-amarela {
+    background: yellow;
+}
+
+.secao-verde {
+    background: green;
+}
+
+.secao-azul {
+    background: blue;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .secao-vermelha {
+        height: 8.5%;
+    }
+    
+    .flex-2-colunas {
+        width: 100%;
+        flex-wrap: wrap;
+        height: 20%;
+    }
+
+    .flex-3-colunas {
+        flex-wrap: wrap;
+        align-content: space-between;
+        height: 30%;
+    }
+
+    .flex-2-colunas div {
+        width: 100%;
+        height: calc((100% / 2) - 10px);
+    }
+
+    .flex-3-colunas div {
+        width: 100%;
+        height: calc((100% / 3) - 10px);
+    }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+    .secao-vermelha {
+        height: 13.5%;
+    }
+
+    .flex-2-colunas {
+        height: 60%;
+    }
+
+    .flex-3-colunas {
+        height: 30%;
+        flex-wrap: wrap;
+        align-content: space-between;
+    }
+
+    .flex-2-colunas div {
+        width: calc((100% / 2) - 10px);
+    }
+    
+    .flex-3-colunas div {
+        width: calc((100% / 2) - 10px);
+        height: calc((100% / 2) - 10px);
+    }
+
+    .flex-3-colunas div:last-child {
+        width: 100%;
+    }
+}
+
+@media screen and (min-device-width: 1201px) {
+    .secao-vermelha {
+        height: 13%;
+    }
+    
+    .flex-2-colunas {
+        height: 60%;
+    }
+
+    .flex-3-colunas {
+        height: 15%;
+    }
+
+    .flex-2-colunas div {
+        width: calc((100% / 2) - 10px);
+    }
+
+    .flex-3-colunas div {
+        width: calc((100% / 3) - 10px);
+    }
+}

@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid: 1fr 9fr/auto;
+    height: 1000px;
+}
+
+.tag-mae {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-gap: 2%;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.tag-mae > div {
+    border: 1px solid black;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .container {
+        grid: 1fr 14fr/auto;
+        height: 1500px;
+    }
+    
+    .tag-mae {
+        grid: initial;
+        grid-gap: 1.5%;
+        padding: 3%;
+    }
+
+    .secao-verde-2 {
+        background: green;
+        grid-area: initial;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+    .container {
+        height: 1300px;
+        grid: 1fr 12fr/auto;
+    }
+    
+    .tag-mae {
+        grid: 1fr 1fr 1fr 1fr 4fr 1fr 1fr/1fr 1fr;
+        grid-gap: 2% 3%;
+    }
+
+    .secao-azul-1, .secao-azul-2, .secao-preta-1, .secao-preta-2
+    .secao-amarela-1, .secao-amarela-1, .secao-amarela-2, .secao-branca-1
+    .secao-branca-2 {
+        grid-area: initial;
+    }
+
+    .secao-verde-1 {
+        grid-area: 2 / 1 / 2 / 3;
+    }
+    
+    .secao-verde-2 {
+        grid-area: 4 / 1 / 5 / 3;
+    }
+
+    .secao-branca-3 {
+        grid-area: 7 / 1 / 7 / 3;
+    }
+}
+
+@media screen and (min-device-width: 1201px) {
+    .tag-mae {
+        grid: 1fr 1fr 3fr 1fr/1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 2.5% 2%;
+    }
+
+    .secao-verde-1 {
+        grid-area: 1 / 5 / 2 / 7;
+    }
+    
+    .secao-verde-2 {
+        grid-area: 2 / 5 / 2 / 7;
+    }
+
+    .secao-azul-1 {
+        grid-area: 1 / 1 / 2 / 3;
+    }
+
+    .secao-azul-2 {
+        grid-area: 2 / 1 / 2 / 3;
+    }
+
+    .secao-preta-1 {
+        grid-area: 3 / 1 / 4 / 4;
+    }
+
+    .secao-preta-2 {
+        grid-area: 3 / 4 / 4 / 7;
+    }
+
+    .secao-amarela-1 {
+        grid-area: 1 / 3 / 2 / 5;
+    }
+
+    .secao-amarela-2 {
+        grid-area: 2 / 3 / 3 / 5;
+    }
+
+    .secao-branca-1 {
+        grid-area: 4 / 1 / 5 / 3;
+    }
+
+    .secao-branca-2 {
+        grid-area: 4 / 3 / 5 / 5;
+    }
+
+    .secao-branca-3 {
+        grid-area: 4 / 5 / 5 / 7;
+    }
+}
+
+.secao-vermelha {
+    background: red;
+}
+
+.secao-azul {
+    background: blue;
+}
+
+.secao-preta {
+    background: black;
+    color: white;
+}
+
+.secao-amarela {
+    background: yellow;
+}
+
+.secao-branca {
+    background: white;
+}
+
+.secao-verde {
+    background: green;
+}
