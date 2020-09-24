@@ -1,0 +1,27 @@
+.fonte-3vezes-root {
+    font-size: 3rem;
+}
+
+.padding-vertical-2vezes-fonte {
+    padding: 2em 0;
+}
+
+.altura-20porcento-comprimento-tela {
+    height: 20vw;
+}
+
+.comprimento-metade-altura-tela {
+    width: 50vh;
+}
+
+.fonte-70porcento-fonte-pai {
+    font-size: 70%;
+}
+
+.comprimento-10porcento-pai {
+    width: 10%;
+}
+
+.altura-10porcento-pai {
+    height: 10%;
+}
