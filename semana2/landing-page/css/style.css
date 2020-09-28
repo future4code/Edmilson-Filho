@@ -29,7 +29,6 @@ body {
 }
 
 .header__logo {
-    width: 11%;
     margin: 20px;
 }
 
@@ -45,6 +44,7 @@ body {
     display: grid;
     grid: auto/repeat(auto-fit, 90px);
     justify-items: center;
+    grid-gap: 20px 0;
 }
 
 .header__item {
@@ -151,6 +151,26 @@ img {
     content: '';
     display: flex;
     margin: 199px 0;
+}
+
+.header__item-a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header__logo-picture {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.header__logo-picture::before {
+    content: '';
+    background: orangered;
+    height: 40px;
+    width: 40px;
+    border-radius: 50% 50% 0 0;
+    margin: 0 10px;
 }
 
 .graph:nth-child(2) {
