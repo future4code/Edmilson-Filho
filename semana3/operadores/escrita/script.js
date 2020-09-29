@@ -54,9 +54,9 @@ console.log('Custo com desconto: ' + (conta - (conta * 0.15)));
 
 // Desafio 3
 console.log((20 * 0.45359237) + "kg");
-console.log((10.5/3.527) + "kg");
-console.log((100 * 1609) + "m");
-console.log((50/3.281) + "m");
+console.log((10.5 * 0.02834952) + "kg");
+console.log((100 * 1609.344) + "m");
+console.log((50 * 0.3048) + "m");
 console.log((103.56 * 3.785411784) + "l");
 let xicaras = 450;
 console.log((xicaras * 0.24) + "l");
