@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: lightgray;
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    display: grid;
+    grid: repeat(auto-fit, 1080px)/auto;
+    text-align: center;
+}
+
+.header {
+    background: url(https://s3-ap-southeast-2.amazonaws.com/prod-mtc/wp-content/uploads/2018/07/22_MTC_Links-to-Learning_Info-Box-Pic_RGB.jpg), rgb(156 154 154);
+    background-size: cover;
+    display: flex;
+    /* grid: auto/1fr; */
+    flex-wrap: wrap;
+    width: 100%;
+    background-blend-mode: multiply;
+    justify-content: space-between;
+    padding: 0 40px;
+    text-align: center;
+    color: white;
+}
+
+.header__logo {
+    margin: 20px;
+}
+
+.header__nav {
+    justify-content: flex-end;
+    width: 50%;
+    margin: 30px 0;
+    max-width: 460px;
+}
+
+.header__list {
+    list-style: none;
+    display: grid;
+    grid: auto/repeat(auto-fit, 90px);
+    justify-items: center;
+    grid-gap: 20px 0;
+}
+
+.header__item {
+
+}
+
+.header__item {
+
+}
+
+.header__item {
+
+}
+
+.header__item {
+
+}
+
+.header__item {
+
+}
+
+.header__title {
+    width: 100%;
+    color: white;
+    font-size: 50px;
+}
+
+.header__sub-title {
+    width: 100%;
+    margin: 40px auto 60px auto;
+    font-size: 30px;
+    max-width: 600px;
+}
+
+.main {
+    background: white;
+    border-radius: 10px;
+    /* padding: 50px; */
+
+    display: grid;
+    grid: repeat(3, minmax(1080px, 100vh))/auto;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.companies__info {
+    grid: auto/repeat(auto-fit, 500px);
+    justify-content: center;
+    display: grid;
+    justify-items: center;
+    grid: auto/repeat(auto-fit, 500px);
+    justify-content: center;
+    display: grid;
+    justify-items: center;
+}
+
+.emphasized {
+
+}
+
+.header__heading {
+    width: 100%;
+}
+
+.main__companies {
+    /* background: linear-gradient(to right, #1c859696, #2e8649), url(img/bg2.jpg); */
+    background: #f9efe6;
+    background-size: cover;
+    display: grid;
+    grid: 22%/auto;
+    padding: 30px;
+}
+
+.companies__graph {
+    font-size: 40px;
+    display: flex;
+    height: 243px;
+}
+
+.know-more {
+    background: #4571c9;
+    padding: 15px 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    border: none;
+}
+
+.graph:first-child {
+    background: skyblue;
+    height: 240px;
+    width: 80px;
+    display: flex;
+}
+
+.graph:first-child::after {
+    height: 17%;
+    width: 80px;
+    background: deepskyblue;
+    content: '';
+    display: flex;
+    margin: 199px 0;
+}
+
+.header__item-a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header__logo-picture {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.header__logo-picture::before {
+    content: '';
+    background: orangered;
+    height: 40px;
+    width: 40px;
+    border-radius: 50% 50% 0 0;
+    margin: 0 10px;
+}
+
+.graph:nth-child(2) {
+    width: 40px;
+    height: 10px;
+    background: lightgray;
+    align-self: flex-end;
+    display: block;
+    margin: 18px 0 20px 10px;
+}
+
+.graph:nth-child(2)::after {
+    background: mediumseagreen;
+    content: '';
+    width: 80px;
+    height: 20px;
+}
+
+.graph:nth-child(3) {
+    display: flex;
+    width: 80px;
+    height: 240px;
+    background: lightgreen;
+}
+
+.graph:nth-child(3)::after {
+    background: mediumseagreen;
+    content: '';
+    width: 80px;
+    height: 20px;
+}
+
+.graph:nth-child(4) {
+    width: 40px;
+    height: 10px;
+    background: lightgray;
+    margin: 0 0 0 20px;
+}
+
+.graph:nth-child(4)::after {
+    background: mediumseagreen;
+    content: '';
+    width: 80px;
+    height: 20px;
+}
+
+.graph__income, .graph__rate {
+    color: deepskyblue;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 20px 0 0;
+}
+
+
+.companies__title {
+    font-size: 30px;
+    display: grid;
+    grid: auto/repeat(auto-fit, 570px);
+    justify-content: center;
+}
+
+.companies__list {
+    font-size: 24px;
+    max-width: 400px;
+    line-height: 1.5;
+    margin: 0 auto 170px;
+    margin: 0 auto 170px;
+}
+
+.companies__title, .isa__title, .examples__title {
+    text-align: center;
+    font-size: 40px;
+    max-width: 600px;
+    color: orangered;
+    margin: auto;
+}
+
+.main__examples {
+    /* background: linear-gradient(to right, #1c859696, #2e8649), url(img/bg2.jpg); */
+    background-size: cover;
+    display: grid;
+    grid: 22%/auto;
+    padding: 30px;
+
+}
+
+.examples__title {
+
+}
+
+.tweets__item {
+    animation: passTweet linear 8s infinite;
+    /* transform: translate(0, 0); */
+    position: relative;
+    transform: translate(-50%, 0);
+}
+
+@keyframes passTweet {
+    50% {
+        transform: translate(50%, 0);
+    }
+
+    /* 100% {
+        transform: translate(-100%, 0);
+        position: relative;
+        right: 100%;
+    } */
+}
+
+.examples__tweets {
+    display: grid;
+    grid: auto/repeat(auto-fit, 570px);
+    justify-content: center;
+}
+
+.social-medias {
+    display: grid;
+    grid: auto-flow/repeat(4, 25%);
+    list-style: none;
+    justify-items: center;
+}
+
+.main__isa {
+    /* background: linear-gradient(to right, #1c859696, #2e8649), url(img/bg2.jpg); */
+    background-size: cover;
+    display: grid;
+    grid: 22%/auto;
+    padding: 30px;
+
+}
+
+.isa__title {
+
+}
+
+.isa__text {
+
+}
+
+.isa__text {
+
+}
+
+.apply {
+
+}
