@@ -19,7 +19,7 @@ criarTarefa = () => {
 }
 
 let riscarTarefa = (tarefaEntrada, i) => {
-    let tarefaClicada = document.getElementById("tarefa" + i);
+    let tarefaClicada = document.getElementById(`tarefa${i}`);
     tarefaClicada.innerHTML = `<i class="clicado">${tarefaEntrada}</i>`;
 }
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Blog</title>
+</head>
+<body>
+    <section>
+        <form action="posts.html" method="GET" id="formulario">
+        <label for="titulo-post">*Título:</label>
+        <input type="text" value="asdas" id="titulo-post" name="titulo" required>
+
+        <label for="autor-post">*Autor:</label>
+        <input type="text" value="gdfgdf" id="autor-post" name="autor" required>
+        
+        <label for="conteudo-post">*Conteúdo:</label>
+        <textarea id="conteudo-post" cols="30" rows="10" name="conteudo" required>asdasd</textarea>
+        
+        <label for="imagem-post">Imagem:</label>
+        <input type="url" value="https://a.wattpad.com/cover/224719529-352-k205197.jpg" name="imagem" id="imagem-post">
+
+        <button type="submit" id="botao-criar">Criar Post</button>
+
+        <span>* Campos obrigatórios</span>
+    </form>
+    </section>
+</body>
+</html>
