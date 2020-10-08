@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+section {
+    justify-content: space-evenly;
+    height: 90vh;
+    display: grid;
+    grid: auto/repeat(auto-fit, 250px);
+}
+
+.semana {
+    border: 1px dotted rgb(53, 53, 53);
+    padding: 5px;
+}
+
+.clicado {
+    text-decoration: line-through;
+}
