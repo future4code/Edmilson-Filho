@@ -1,7 +1,6 @@
 let arrDespesas = []
 imprimirDespesas(arrDespesas)
 imprimirExtrato(arrDespesas)
-console.log(arrDespesas)
 
 // PRIMEIRO
 function imprimirDespesas(despesas){
@@ -13,7 +12,6 @@ function imprimirDespesas(despesas){
         <p>valor: R$${despesa.valor} | tipo: ${despesa.tipo} | descrição: ${despesa.descricao}</p>
         `;
     } )
-
     // AQUI VEM A IMPLEMENTAÇÃO
 }
 
@@ -26,14 +24,17 @@ function imprimirExtrato(despesas){
     let gastoUtilidades = 0
     let gastoViagem = 0
 
-    despesas.filter((despesa, index, despesas) => {
+    despesas.filter((despesa, index, array) => {
         if (despesa.tipo === "alimentação") {
-            gastoAlimentacao += despesa.valor;            
+            gastoAlimentacao += despesa.valor;
+        } else if (despesa.tipo === "utilidades") {
+            gastoUtilidades += despesa.valor;
+        } else {
+            gastoViagem += despesa.valor;
         }
-        
-        console.log(gastoAlimentacao);
-        return gastoAlimentacao;
     })
+
+    gastoTotal = gastoAlimentacao + gastoUtilidades + gastoViagem;
 
     // AQUI VEM A IMPLEMENTAÇÃO
 
@@ -71,7 +72,7 @@ function adicionarDespesa(){
         
         limparFiltros()
         imprimirDespesas(arrDespesas)
-        imprimirExtrato()
+        imprimirExtrato(arrDespesas)
     } else {
         alert("`Faltou algum valor ou algum valor é um número negativo`")
     }
@@ -80,13 +81,18 @@ function adicionarDespesa(){
 
 
 // TERCEIRO
-function filtrarDespesas(){
+function filtrarDespesas(arrDespesas){
     let tipoFiltro = document.getElementById('tipoFiltro').value
     let valorMin = Number(document.getElementById('valorFiltroMin').value)
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
 
-    let despesasFiltradas // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+    let despesasFiltradas = arrDespesas.filter((despesa, index, despesas) => {
+        if (despesa.tipo === tipoFiltro && despesa.valor > valorMin && despesa.valor < valorMax) {
+            console.log(despesa);
+            return despesa;
+        }
+    }) // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
 
     imprimirDespesas(despesasFiltradas)
 }
