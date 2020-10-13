@@ -68,3 +68,32 @@
 // }
 
 // classificarTriangulo(trianguloLado1, trianguloLado2, trianguloLado3);
+
+// Exercício 9
+
+const numero1 = prompt("Insira o primeiro número");
+const numero2 = prompt("Insira o segundo número");
+
+const diferencarDoisNumeros = (numero1, numero2) => {
+    let maior;
+    let divisivel;
+    let diferenca;
+    
+    if (numero1 > numero2) {
+        maior = `${numero1} é maior`;
+    } else {
+        maior = `${numero2} é maior`;
+    }
+
+    if (numero1 % numero2 === 0) {
+        divisivel = `${numero1} é divisível por ${numero2}`;
+    }
+
+    diferenca = abs(numero1 - numero2);
+
+    console.log(maior);
+    console.log(divisivel);
+    console.log(diferenca);
+}
+
+diferencarDoisNumeros(numero1, numero2);
