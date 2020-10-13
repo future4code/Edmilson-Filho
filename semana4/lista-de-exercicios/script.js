@@ -9,3 +9,8 @@
 // Exercicio 3
 
 // Itera sobre o array numeros colocando os seus numeros pares no array1 e seus impares no array2, então exibe comprimento de numeros, array1 e array2
+
+// Exercicio 4
+
+// Verifica se cada item do array numeros não é infinito, atribuindo numero1 a numero se verdadeiro. Verifica também se cada numero é positivo atribuindo, se verdadeiro, esse número a numero2
+
