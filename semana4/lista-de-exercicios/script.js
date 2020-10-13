@@ -142,6 +142,27 @@ const criaRetangulo = (lado1, lado) => {
 }
 
 // Exercício 13
+
 const filmeFavorito = {
-    'título': ''
+    'título': 'Alita: Anjo de Combate',
+    'ano': 2019,
+    'diretor': 'Robert Rodriguez', 
+    'atores': ['Rosa Salazar', 'Christoph Waltz']
+}
+
+console.log (`Venha assistir ao filme Alita: Anjo de Combate, de 2019, dirigido por Robert Rodriguez e estrelado por Rosa Salazar e Christoph Waltz.`);
+
+// Exercício 14
+
+const minhaPessoa = {
+    'nome': 'Edmilson',
+    'idade': 20,
+    'endereco': 'Lauro de Freitas - BA'
+}
+
+const anonimizarPessoa = (minhaPessoa) => {
+    const pessoaAnonima = {
+        ...minhaPessoa,
+        'nome': 'ANÔNIMO'
+    }
 }
