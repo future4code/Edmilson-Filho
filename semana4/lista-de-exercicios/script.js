@@ -53,11 +53,12 @@
 
 // Exercício 8
 
-// const trianguloLado1 = prompt("Insira o tamanho do 1º lado do triângulo");
-// const trianguloLado2 = prompt("Insira o tamanho do 2º lado do triângulo");
-// const trianguloLado3 = prompt("Insira o tamanho do 3º lado do triângulo");
 
 // const classificarTriangulo = (lado1, lado2, lado3) => {
+    // const trianguloLado1 = prompt("Insira o tamanho do 1º lado do triângulo");
+    // const trianguloLado2 = prompt("Insira o tamanho do 2º lado do triângulo");
+    // const trianguloLado3 = prompt("Insira o tamanho do 3º lado do triângulo");
+
 //     if (lado1 === lado2 === lado3) {
 //         return "Equilátero";
 //     } else if (lado1 === lado2 || lado1 === lado3 || lado === lado3) {
@@ -71,10 +72,10 @@
 
 // Exercício 9
 
-const numero1 = prompt("Insira o primeiro número");
-const numero2 = prompt("Insira o segundo número");
-
 const diferencarDoisNumeros = (numero1, numero2) => {
+    const numero1 = prompt("Insira o primeiro número");
+    const numero2 = prompt("Insira o segundo número");
+
     let maior;
     let divisivel;
     let diferenca;
@@ -97,3 +98,30 @@ const diferencarDoisNumeros = (numero1, numero2) => {
 }
 
 diferencarDoisNumeros(numero1, numero2);
+
+// Exercício 10
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numerosMaioresMenores = (numeros) => {
+    let i = 0;
+
+    for (let numero of numeros) {
+        for (let numero2 of numeros) {
+            if (numero > numero2) {
+                i++;
+            }
+        }
+
+        if (i === numeros.length - 1) {
+            console.log(`O segundo maior número é ${numero}`);
+        }
+        
+        i = 0;
+    }
+}
+
+const alertar = () => {
+    alert("Hello Future4");
+}
+
+alert();
