@@ -14,3 +14,19 @@
 
 // Verifica se cada item do array numeros não é infinito, atribuindo numero1 a numero se verdadeiro. Verifica também se cada numero é positivo atribuindo, se verdadeiro, esse número a numero2
 
+// Exercício 5
+
+// for, for ... of ... e for ... in ...
+// let numeros = [1, 2, 3, 4, 5];
+
+// for (let i = 0; i <= numeros.length; i++) {
+//     console.log(numeros[i]);
+// }
+
+// for (let i of numeros) {
+//     console.log(numeros);
+// }
+
+// for (let i in numeros) {
+//     console.log(numeros);
+// }
