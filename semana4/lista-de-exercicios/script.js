@@ -125,3 +125,7 @@ const alertar = () => {
 }
 
 alert();
+
+// Exercício 11
+
+// Nós utilizamos arrays quando precisamos apenas criar uma lista de dados em sequência. Arrays são justamente isso. Entretanto, objetos são necessários para o propósito de estabelecermos uma entidade independente, contendo um conjunto de propriedades, com dados relacionados e/ou métodos.
