@@ -140,3 +140,8 @@ const criaRetangulo = (lado1, lado) => {
         'área': lado1 * lado2
     }
 }
+
+// Exercício 13
+const filmeFavorito = {
+    'título': ''
+}
