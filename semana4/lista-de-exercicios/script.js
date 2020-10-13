@@ -129,3 +129,14 @@ alert();
 // Exercício 11
 
 // Nós utilizamos arrays quando precisamos apenas criar uma lista de dados em sequência. Arrays são justamente isso. Entretanto, objetos são necessários para o propósito de estabelecermos uma entidade independente, contendo um conjunto de propriedades, com dados relacionados e/ou métodos.
+
+// Exercício 12
+
+const criaRetangulo = (lado1, lado) => {
+    const retanguloInfo = {
+        'largura': lado1,
+        'altura': lado2,
+        'perímetro': 2 * (lado1 + lado2),
+        'área': lado1 * lado2
+    }
+}
