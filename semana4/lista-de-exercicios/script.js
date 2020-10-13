@@ -194,3 +194,32 @@ const buscarMenores = (pessoas) =>{
             }
     })
 };
+
+// Exercício 16
+
+const array = [1, 2, 3, 4, 5, 6];
+
+// a.
+const multiplicarPorDois = (array) => {
+    const arrayNovo = array.map(item => {
+        return item * 2;
+    })
+}
+
+// b.
+const multiplicarPorDois = (array) => {
+    const arrayNovo = array.map(item => {
+        return `${item * 3}`;
+    })
+}
+
+// c.
+const multiplicarPorDois = (array) => {
+    const arrayNovo = array.map(item => {
+        if (item % 2 === 0) {
+            return `${item} é par`;
+        } else {
+            return `${item} é ímpar`;
+        }
+    })
+}
