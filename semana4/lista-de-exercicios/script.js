@@ -50,3 +50,21 @@
 //   console.log(i*2)
 //   i++;
 // }
+
+// Exercício 8
+
+// const trianguloLado1 = prompt("Insira o tamanho do 1º lado do triângulo");
+// const trianguloLado2 = prompt("Insira o tamanho do 2º lado do triângulo");
+// const trianguloLado3 = prompt("Insira o tamanho do 3º lado do triângulo");
+
+// const classificarTriangulo = (lado1, lado2, lado3) => {
+//     if (lado1 === lado2 === lado3) {
+//         return "Equilátero";
+//     } else if (lado1 === lado2 || lado1 === lado3 || lado === lado3) {
+//         return "Isósceles"
+//     } else {
+//         return "Escaleno";
+//     }
+// }
+
+// classificarTriangulo(trianguloLado1, trianguloLado2, trianguloLado3);
