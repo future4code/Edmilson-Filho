@@ -30,3 +30,11 @@
 // for (let i in numeros) {
 //     console.log(numeros);
 // }
+
+// Exercício 6
+
+// a. false
+// b. true
+// c. true
+// d. false
+// e. false
