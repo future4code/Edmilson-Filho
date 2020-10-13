@@ -5,3 +5,7 @@
 // Exercicio 2
 
 // Recebe uma string com um tipo de investimento e um valor como parâmetros para determinar o valor após o investimento de acordo com o tipo de investimento
+
+// Exercicio 3
+
+// Itera sobre o array numeros colocando os seus numeros pares no array1 e seus impares no array2, então exibe comprimento de numeros, array1 e array2
