@@ -38,3 +38,15 @@
 // c. true
 // d. false
 // e. false
+
+
+// Exercício 7
+
+// Não, porque quantidadeDeNumerosPares é indefinido e i é estático
+// const quantidadeDeNumerosPares = prompt("Digite a quantidade de números pares");
+// let i = 0
+
+// while(i <= quantidadeDeNumerosPares) {
+//   console.log(i*2)
+//   i++;
+// }
