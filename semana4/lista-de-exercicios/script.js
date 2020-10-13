@@ -166,3 +166,31 @@ const anonimizarPessoa = (minhaPessoa) => {
         'nome': 'ANÔNIMO'
     }
 }
+
+// Exercício 15
+
+// a. 
+const pessoas = [
+    { nome: "Pedro", idade: 20 },
+    { nome: "João", idade: 10 },
+    { nome: "Paula", idade: 12 },
+    { nome: "Artur", idade: 89 },
+]
+
+const buscarAdultos = (pessoas) =>{
+        pessoas.filter((pessoa, index, pessoas) => {
+            if (pessoa.idade >= 20) {
+                return true;
+            }
+    })
+};
+
+// b.
+
+const buscarMenores = (pessoas) =>{
+        pessoas.filter((pessoa, index, pessoas) => {
+            if (pessoa.idade < 20) {
+                return true;
+            }
+    })
+};
