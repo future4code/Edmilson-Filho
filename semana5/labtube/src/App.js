@@ -28,6 +28,7 @@ function App() {
                 </div>
                 <div className="busca">
                   <input type="text" placeholder="Pesquisar" id="campoDeBusca" />
+                  <div className="busca-teclado"></div>
                   <div className="busca-icone"></div>
                 </div>
                 <nav className="menu-horizontal">
@@ -82,7 +83,7 @@ function App() {
                           <div className="tempo-atual">10:15</div>
                         </div>
                         <div className="descricao">
-                          <div><img className="canal-imagem" src={perfil} /></div>
+                          <div className="descricao-foto"><img className="canal-imagem" src={perfil} /></div>
                           <h4 className="nome-canal">{titulo}</h4>
                           <div className="descricao-mais">
                             <div>Nome do canal</div>
