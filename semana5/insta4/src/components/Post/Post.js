@@ -20,7 +20,10 @@ class Post extends React.Component {
     numeroComentarios: 0,
     salvo: false,
     compartilha: false,
-    textoCompartilhar: ""
+    textoCompartilhar: "",
+    posts: [
+      
+    ]
   }
 
   onClickCurtida = () => {
