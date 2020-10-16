@@ -1,5 +1,10 @@
 import React from 'react'
 import './IconeSemContador.css'
+import styled from 'styled-components';
+
+const Icone = styled.div`
+	background: gray;
+`
 
 export function IconeSemContador(props) {
 
@@ -12,12 +17,12 @@ export function IconeSemContador(props) {
 	return <div className={"icon-container"}>
 		<img alt={'Icone'} src={props.icone} onClick={props.onClickIcone} />
 		{props.compartilha ?
-			<div>
+			<Icone>
 				<div onClick={props.onClickOpcoes}>Facebook</div>
 				<div onClick={props.onClickOpcoes}>Instagram</div>
 				<div onClick={props.onClickOpcoes}>Twitter</div>
 				<input value={props.textoCompartilhar} onChange={props.aoCompartilhar} type="text" />
-			</div>
+			</Icone>
 			:
 			null
 		}
