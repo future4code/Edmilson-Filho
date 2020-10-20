@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function EntradaForm(){
+export function EntradaForm(props){
     let tipo;
     
     switch(props.tipo) {
@@ -16,6 +16,7 @@ export function EntradaForm(){
     
     return(
         <div>
+            <p>{props.titulo}</p>
             <label for={props.id}>
                 {props.label}
             </label>
