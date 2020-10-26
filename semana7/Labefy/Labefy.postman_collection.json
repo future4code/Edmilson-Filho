@@ -33,7 +33,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=Músicas eletrônicas para te colocar para cima",
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=Músicasdasd eletrônicas para te colocar para cima",
 					"protocol": "https",
 					"host": [
 						"us-central1-labenu-apis",
@@ -48,7 +48,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "Músicas eletrônicas para te colocar para cima"
+							"value": "Músicasdasd eletrônicas para te colocar para cima"
 						}
 					]
 				},
@@ -93,7 +93,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/?",
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/0a31d5de-58b7-4336-8694-9fe7706d54bd",
 					"protocol": "https",
 					"host": [
 						"us-central1-labenu-apis",
@@ -103,13 +103,7 @@
 					"path": [
 						"labefy",
 						"playlists",
-						""
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null
-						}
+						"0a31d5de-58b7-4336-8694-9fe7706d54bd"
 					]
 				},
 				"description": "Remove uma playlist da lista"
@@ -122,7 +116,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/1980d0d7-f29f-4ac5-88a1-c0ccb056065d/tracks",
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/0a31d5de-58b7-4336-8694-9fe7706d54bd/tracks",
 					"protocol": "https",
 					"host": [
 						"us-central1-labenu-apis",
@@ -132,7 +126,7 @@
 					"path": [
 						"labefy",
 						"playlists",
-						"1980d0d7-f29f-4ac5-88a1-c0ccb056065d",
+						"0a31d5de-58b7-4336-8694-9fe7706d54bd",
 						"tracks"
 					]
 				},
@@ -147,7 +141,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Inferno\",\r\n    \"artist\": \"Mary Friedman\",\r\n    \"url\": \"https://www.youtube.com/watch?v=bTzDR4HdbKI\"\r\n}",
+					"raw": "{ \"id\": \"f62d4053-6e4e-4b89-8e3a-50052d0976e1\", \"name\": \"Inferno\", \"artist\": \"Mary Friedman\", \"url\": \"https://www.youtube.com/watch?v=bTzDR4HdbKI\" }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -155,7 +149,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/53cbf6ab-cf28-4450-9bd0-d7485d67f63a/tracks",
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/0a31d5de-58b7-4336-8694-9fe7706d54bd/tracks",
 					"protocol": "https",
 					"host": [
 						"us-central1-labenu-apis",
@@ -165,7 +159,7 @@
 					"path": [
 						"labefy",
 						"playlists",
-						"53cbf6ab-cf28-4450-9bd0-d7485d67f63a",
+						"0a31d5de-58b7-4336-8694-9fe7706d54bd",
 						"tracks"
 					]
 				},
@@ -179,7 +173,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:53cbf6ab-cf28-4450-9bd0-d7485d67f63a/tracks/:f62d4053-6e4e-4b89-8e3a-50052d0976e1\n",
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/53cbf6ab-cf28-4450-9bd0-d7485d67f63a/tracks/fasdas\n",
 					"protocol": "https",
 					"host": [
 						"us-central1-labenu-apis",
@@ -189,19 +183,9 @@
 					"path": [
 						"labefy",
 						"playlists",
-						":53cbf6ab-cf28-4450-9bd0-d7485d67f63a",
+						"53cbf6ab-cf28-4450-9bd0-d7485d67f63a",
 						"tracks",
-						":f62d4053-6e4e-4b89-8e3a-50052d0976e1\n"
-					],
-					"variable": [
-						{
-							"key": "53cbf6ab-cf28-4450-9bd0-d7485d67f63a",
-							"value": ""
-						},
-						{
-							"key": "f62d4053-6e4e-4b89-8e3a-50052d0976e1\n",
-							"value": ""
-						}
+						"fasdas\n"
 					]
 				},
 				"description": "Remove uma música de determinada playlist"
