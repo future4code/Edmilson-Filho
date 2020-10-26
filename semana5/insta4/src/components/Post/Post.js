@@ -105,13 +105,15 @@ class Post extends React.Component {
 
     return <div className={'post-container'}>
       <div className={'post-header'}>
-        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
-        <p>{this.props.nomeUsuario}</p>
-        <IconeSemContador
-          icone={iconeSalvo}
-          onClickIcone={this.onClickSalvo}
-        />
+        <div>
+          <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+          <p>{this.props.nomeUsuario}</p>
       </div>
+          <IconeSemContador
+            icone={iconeSalvo}
+            onClickIcone={this.onClickSalvo}
+          />
+        </div>
 
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
 
@@ -127,8 +129,6 @@ class Post extends React.Component {
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />
-      </div>
-      {componenteComentario}
       <div>
         <IconeSemContador
           icone={iconeCompartilha}
@@ -139,6 +139,8 @@ class Post extends React.Component {
           aoCompartilhar={(e) => this.aoCompartilhar(e)}
         />
       </div>
+      </div>
+      {componenteComentario}
     </div>
   }
 }
