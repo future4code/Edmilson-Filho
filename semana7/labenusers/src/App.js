@@ -9,8 +9,12 @@ class App extends Component {
   state = {
     name: '',
     email: '',
+    nameEdit: '',
+    emailEdit: '',
     usuarios: [],
-    mudarTela: false
+    usuarioDetalhes: null,
+    pagina: 0,
+    editar: true
   }
 
   componentDidMount = () => {
@@ -34,13 +38,25 @@ class App extends Component {
   }
   
   onClickMudarTela = () => {
-    this.setState({
-      mudarTela: !this.state.mudarTela
-    })
+    if (this.state.pagina < 3) { 
+      this.setState({
+        pagina: this.state.pagina + 1
+      })
+    }
+    console.log(this.state.pagina)
   }
   
-  onClickExcluir = (id) => {
-    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+  onClickVoltar = () => {
+    if (this.state.pagina > 0) { 
+      this.setState({
+        pagina: this.state.pagina - 1
+      })
+    }
+    console.log(this.state.pagina)
+  }
+
+  onClickUsuario = (id) => {
+    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
       {
         headers: {
           Authorization: "edmilson-ferreira-dumont"
@@ -48,12 +64,38 @@ class App extends Component {
       }
     )
     .then(res => {
-      alert("Usuario excluído");
-      this.receberUsuarios();
+      console.log(res.data)
+      this.setState({
+        usuarioDetalhes: res.data
+      });
+      console.log(this.state.usuarioDetalhes)
     })
     .catch((err) => {
       alert(err.message);
     })
+    .then(res => {
+    this.onClickMudarTela();
+    })
+  }
+  
+  onClickExcluir = (id) => {
+    const confirmar = window.confirm("Tem certeza de que deseja deletar?");
+
+    if (confirmar) {
+      axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+        {
+          headers: {
+            Authorization: "edmilson-ferreira-dumont"
+          }
+        }
+      )
+      .then(res => {
+        this.receberUsuarios();
+      })
+      .catch((err) => {
+        alert(err.message);
+      })
+    }
   }
 
   receberUsuarios = () => {
@@ -96,16 +138,52 @@ class App extends Component {
     })
   }
 
+  onClickEditar = (id) => {
+    this.onClickMudarTela();
+    this.setState({
+      editar: !this.state.editar
+    })
+    // const body = {
+    //   name: this.state.name,
+    //   email: this.state.email
+    // }
+    
+    // axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/${id}`,
+    // body,
+    // {
+    //   headers: {
+    //     Authorization: "edmilson-ferreira-dumont"
+    //   }
+    // })
+    // .then((res) => {
+    //   alert("Você acabou de alterar o usuário")
+    //   this.receberUsuarios();
+    // })
+    // .catch((error) => {
+    //   alert(error.message);
+    // })
+  }
+
   render(){
     return (
       <div className="App">
         {console.log(this.state.usuarios)}
-        <button onClick={this.onClickMudarTela}>
-          {this.state.mudarTela ? "Ir para página de lista" : "Ir para página de registro"}
-        </button>
-        { this.state.mudarTela ? <Usuarios usuarios={this.state.usuarios} onClickExcluir={this.onClickExcluir} />
-        :
-        <Login onSubmitEnviar={this.onSubmitEnviar} nomeValor={this.state.name} emailValor={this.state.email} onChangeNome={this.onChangeNome} onChangeEmail={this.onChangeEmail} />
+        {!this.state.pagina ?
+          <button onClick={this.onClickMudarTela}>
+          Lista de usuários
+          </button>
+          :
+          <button onClick={this.onClickVoltar}>
+            Voltar
+          </button>
+        }
+
+        { this.state.pagina === 0 ?
+          <Login onSubmitEnviar={this.onSubmitEnviar} nomeValor={this.state.name} emailValor={this.state.email} onChangeNome={this.onChangeNome} onChangeEmail={this.onChangeEmail} />
+          : this.state.pagina >= 1 ?
+          <Usuarios usuarioDetalhes={this.state.usuarioDetalhes} editar={this.state.editar} pagina={this.state.pagina} usuarios={this.state.usuarios} exibirDetalhes={this.state.exibirDetalhes} onClickEditar={this.onClickEditar} onClickExcluir={this.onClickExcluir} onClickUsuario={this.onClickUsuario} />
+          :
+          null
         }
       </div>
     );
