@@ -11,8 +11,6 @@ class App extends Component {
     email: '',
     nameEdit: '',
     emailEdit: '',
-    nomeBuscar: '',
-    emailBuscar: '',
     usuarios: [],
     usuarioDetalhes: null,
     pagina: 0,
@@ -20,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.receberUsuarios();
+    this.getCapsules();
   }
 
   onChangeNome = (e) => {
@@ -30,23 +28,7 @@ class App extends Component {
       name: name
     })
   }
-  onChangeNomeBuscar = (e) => {
-    const nomeBuscar = e.target.value;
-
-    this.setState({
-      nomeBuscar: nomeBuscar
-    })
-  }
   
-  
-  onChangeNomeEdit = (e) => {
-    const nomeEdit = e.target.value;
-
-    this.setState({
-      nameEdit: nomeEdit
-    })
-  }
-
   onChangeEmail = (e) => {
     const email = e.target.value;
 
@@ -55,19 +37,19 @@ class App extends Component {
     })
   }
   
+  onChangeNomeEdit = (e) => {
+    const nomeEdit = e.target.value;
+
+    this.setState({
+      nameEdit: nomeEdit
+    })
+  }
+  
   onChangeEmailEdit = (e) => {
     const emailEdit = e.target.value;
 
     this.setState({
       emailEdit: emailEdit
-    })
-  }
-  
-  onChangeEmailBuscar = (e) => {
-    const emailBuscar = e.target.value;
-
-    this.setState({
-      emailBuscar: emailBuscar
     })
   }
   
@@ -89,9 +71,9 @@ class App extends Component {
     console.log(this.state.pagina)
   }
 
-  onClickUsuario = async (id) => {
+  onClickCapsule = async (serial) => {
     try {
-      const res = await axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+      const res = await axios.get(`https://api.spacexdata.com/v3/capsules/${serial}`,
         {
           headers: {
             Authorization: "edmilson-ferreira-dumont"
@@ -127,15 +109,15 @@ class App extends Component {
     }
   }
 
-  receberUsuarios = async () => {
+  getCapsules = async () => {
     try {
-      const res = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
+      const res = await axios.get("https://api.spacexdata.com/v3/capsules", {
         headers: {
           Authorization: "edmilson-ferreira-dumont"
         }
       })
-      this.setState({ usuarios: res.data });
       
+      this.setState({ capsules: res.data });
     } catch(err) {
       alert(err.message);
     }
@@ -190,47 +172,11 @@ class App extends Component {
     }
   }
 
-  onClickBuscar = async () => {
-    const nome = this.state.nomeBuscar;
-    const email = this.state.emailBuscar;
-    
-    try {
-    const res = await axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${nome}&email=${email}`,
-    {
-      headers: {
-        Authorization: "edmilson-ferreira-dumont"
-      }
-    })
-    this.setState({ usuarios: res.data });
-    console.log(this.state.nomeBuscar);
-    console.log(this.state.emailBuscar);
-    console.log(res.data);
-    console.log(this.state.usuarios);
-      alert("Você acabou de alterar um usuário")
-    } catch(err){
-      alert(err.message);
-    }
-  }
-
   render(){
     return (
       <div className="App">
-        { !this.state.pagina ?
-          <button onClick={this.onClickMudarTela}>
-            <span class="material-icons">
-            list
-            </span>Lista de usuários</button>
-          :
-          <button onClick={this.onClickVoltar}>Voltar</button>
-        }
-
-        { this.state.pagina === 0 ?
-          <Login onSubmitEnviar={this.onSubmitEnviar} nomeValor={this.state.name} emailValor={this.state.email} onChangeNome={this.onChangeNome} onChangeEmail={this.onChangeEmail} />
-          : this.state.pagina >= 1 ?
-          <Usuarios onClickBuscar={this.onClickBuscar} onChangeNomeEdit={this.onChangeNomeEdit}  onChangeNomeBuscar={this.onChangeNomeBuscar}  onChangeEmailBuscar={this.onChangeEmailBuscar} onChangeEmailEdit={this.onChangeEmailEdit} nomeEdit={this.state.nameEdit} emailEdit={this.state.emailEdit} usuarioDetalhes={this.state.usuarioDetalhes} editar={this.state.editar} pagina={this.state.pagina} usuarios={this.state.usuarios} exibirDetalhes={this.state.exibirDetalhes} onClickSalvar={this.onClickSalvar} onClickEditar={this.onClickEditar} onClickExcluir={this.onClickExcluir} onClickUsuario={this.onClickUsuario} />
-          :
-          null
-        }
+        <h2>Capsulas</h2>
+        {}
       </div>
     );
   }

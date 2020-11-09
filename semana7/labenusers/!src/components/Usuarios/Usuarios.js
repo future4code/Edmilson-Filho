@@ -5,29 +5,25 @@ export function Usuarios(props) {
     return (
         <div>
             {props.pagina === 1 ?
-                <div>
+                <form onSubmit={props.onSubmitBuscar}>
                     <h4>Buscar um usuário</h4>
                     
-                    <label htmlFor="nomeBuscar">
+                    <label htmlFor="nome">
                         Nome:
-                        <input value={props.nomeBuscar} onChange={props.onChangeNomeBuscar} type="text" id="nameBuscar" />
-                    </label>
-                    <label htmlFor="emailBuscar">
-                        Email:
-                        <input value={props.emailBuscar} onChange={props.onChangeEmailBuscar} type="text" id="emailBuscar" />
+                        <input value={props.nomeValor} onChange={props.onChangeNome} type="text" id="name" />
                     </label>
 
-                    <button onClick={props.onClickBuscar}>Buscar</button>
-                </div>:
+                    <button>Buscar</button>
+                </form>:
                 null
             }
             <ul>
-            <h4>Usuarios Cadastrados:</h4>
             { props.usuarios.map((usuario, key) => {
                 return (
                     <div>
                         { props.pagina === 1 ?
                         <div>
+                        <h4>Usuarios Cadastrados:</h4>
                             <p exibirDetalhes={props.exibirDetalhes} onClick={() => props.onClickUsuario(usuario.id)}>{usuario.name}</p>
                         </div>:
                         null
