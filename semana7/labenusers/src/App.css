@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: rgb(50, 50, 50);
 }
 
 .App-logo {
@@ -11,6 +12,58 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+h4 {
+  font-size: 20px;
+}
+
+table {
+  margin: auto;
+}
+
+td {
+  width: 200px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  background: #1565C0;
+  color: white;
+  border-radius: 20px;
+  padding: 6px 18px;
+  border: 2px solid lightgray;
+  font-size: 15px;
+}
+
+.listUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user:nth-child(even) {
+  background: gainsboro;
+}
+
+.listUser button {
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.inputDiv {
+  margin: 0 0 30px 0;
+  font-size: 17px;
+}
+
+span {
+  font-size: 28px;
+  margin: 0 8px 0 0;
 }
 
 .App-header {

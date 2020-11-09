@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import { Login } from './components/Login/Login';
+import { Cadastro } from './components/Cadastro/Cadastro';
 import { Usuarios } from './components/Usuarios/Usuarios';
 
 class App extends Component {
@@ -217,15 +217,15 @@ class App extends Component {
       <div className="App">
         { !this.state.pagina ?
           <button onClick={this.onClickMudarTela}>
-            <span class="material-icons">
-            list
-            </span>Lista de usuários</button>
+            <span className="material-icons">people</span>Lista de usuários</button>
           :
-          <button onClick={this.onClickVoltar}>Voltar</button>
+          <button onClick={this.onClickVoltar}>
+            <span class="material-icons">keyboard_backspace</span>Voltar
+            </button>
         }
 
         { this.state.pagina === 0 ?
-          <Login onSubmitEnviar={this.onSubmitEnviar} nomeValor={this.state.name} emailValor={this.state.email} onChangeNome={this.onChangeNome} onChangeEmail={this.onChangeEmail} />
+          <Cadastro onSubmitEnviar={this.onSubmitEnviar} nomeValor={this.state.name} emailValor={this.state.email} onChangeNome={this.onChangeNome} onChangeEmail={this.onChangeEmail} />
           : this.state.pagina >= 1 ?
           <Usuarios onClickBuscar={this.onClickBuscar} onChangeNomeEdit={this.onChangeNomeEdit}  onChangeNomeBuscar={this.onChangeNomeBuscar}  onChangeEmailBuscar={this.onChangeEmailBuscar} onChangeEmailEdit={this.onChangeEmailEdit} nomeEdit={this.state.nameEdit} emailEdit={this.state.emailEdit} usuarioDetalhes={this.state.usuarioDetalhes} editar={this.state.editar} pagina={this.state.pagina} usuarios={this.state.usuarios} exibirDetalhes={this.state.exibirDetalhes} onClickSalvar={this.onClickSalvar} onClickEditar={this.onClickEditar} onClickExcluir={this.onClickExcluir} onClickUsuario={this.onClickUsuario} />
           :
