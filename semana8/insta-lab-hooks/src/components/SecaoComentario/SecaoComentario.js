@@ -14,8 +14,9 @@ const InputComment = styled.input `
 
 const SecaoComentario = (props) => {
 
-
+const [counter, setCounter] = useState(0);
 	const onChangeComentario = (event) => {
+	  
 	}
 
 	return (
