@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import Missions from './components/Missions/Missions';
 
 class App extends Component {
   state = {
-    capsules: [],
+    missions: [],
     capsuleDetails: null,
     upcoming: null,
     past: null,
@@ -13,22 +14,22 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.getCapsules();
+    this.getMissions();
   }
 
-  getCapsules = async () => {
+  getMissions = async() => {
     try {
-      const res = await axios.get("https://api.spacexdata.com/v3/capsules/")
+      const res = await axios.get("https://api.spacexdata.com/v3/missions");
       
-      this.setState({ capsules: res.data})
+      this.setState({ missions: res.data});
     } catch(err) {
-      alert(`Erro ${err}`)
+      alert(`Erro ${err}`);
     }
   }
 
   getOneCapsule = async (serial) => {
     try {
-      const res = await axios.get(`https://api.spacexdata.com/v3/capsules/${serial}`)
+      const res = await axios.get(`https://api.spacexdata.com/v3/missions/${serial}`)
       
       this.setState({ capsuleDetails: res.data})
     } catch(err) {
@@ -36,9 +37,9 @@ class App extends Component {
     }
   }
 
-  getUpcomingCapsules = async (serial) => {
+  getUpcomingMissions = async (serial) => {
     try {
-      const res = await axios.get(`https://api.spacexdata.com/v3/capsules/upcoming`)
+      const res = await axios.get(`https://api.spacexdata.com/v3/missions/upcoming`)
       
       this.setState({ upcoming: res.data})
     } catch(err) {
@@ -46,9 +47,9 @@ class App extends Component {
     }
   }
 
-  getPastCapsules = async (serial) => {
+  getPastMissions = async (serial) => {
     try {
-      const res = await axios.get(`https://api.spacexdata.com/v3/capsules/past`)
+      const res = await axios.get(`https://api.spacexdata.com/v3/missions/past`)
       
       this.setState({ upcoming: res.data})
     } catch(err) {
@@ -89,34 +90,35 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h2>Capsulas</h2>
-        {console.log(this.state.capsules)}
+        <header>
+          <div>
+            <img />
+          </div>
+          
+          <nav>
+            <ul>
+              <li>Home</li>
+              <li>Missions</li>
+              <li>Capsules</li>
+              <li>Launchs</li>
+            </ul>
+          </nav>
+        </header>
+        
+        <Missions missions={this.state.missions} />
+
+        <footer>
+          <div>
+            <img />
+          </div>
+
+          <p>SpaceX 2020&comercial;. All rights reserved</p>
 
         <ul>
-          {
-            this.state.capsules.map((capsule, key) => {
-              return (
-              <li key={key}>
-                <p>capsule_id: {capsule.capsule_id}</p>
-                <p>capsule_serial: {capsule.capsule_serial}</p>
-                <p>details: {capsule.details}</p>
-                <p>landings: {capsule.landings}</p>
-                <p>missions: {
-                capsule.missions.map((misson, key) => {
-                  <p key={key}>{misson}</p>
-              })
-                }
-              </p>
-                <p>original_launch: {capsule.original_launch}</p>
-                <p>original_launch_unix: {capsule.original_launch_unix}</p>
-                <p>reuse_count: {capsule.reuse_count}</p>
-                <p>status: {capsule.status}</p>
-                <p>type: {capsule.type}</p>
-              </li>
-              )
-            })
-          }
+          <li>Terms and conditions</li>
+          <li>Policy privacy</li>
         </ul>
+        </footer>
       </div>
     );
   } 
