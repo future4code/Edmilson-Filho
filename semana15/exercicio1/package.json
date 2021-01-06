@@ -1,0 +1,15 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./script.js"
+  },
+  "author": "Edmilson Ferreira",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "13.7.7",
+    "typescript": "^3.8.3"
+  }
+}
