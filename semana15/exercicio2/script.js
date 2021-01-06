@@ -1,12 +1,18 @@
 // Exercício 2
 
-const firstNumber = Number(process.argv[2]);
+const firstNumber = process.argv[2];
+const firstNumberToNumber = Number(process.argv[2]);
 let operation = process.argv[3];
-const secondNumber = Number(process.argv[4]);
+const secondNumber = process.argv[4];
+const secondNumberToNumber = Number(process.argv[4]);
+
 let result;
 
+const red = "\x1b[31m%s\x1b[0m";
+const cian = "\x1b[36m%s\x1b[0m";
+
 const printResult = (firstNumber, operation, secondNumber, valid) => {
-    console.log(`${firstNumber} ${operation} ${secondNumber} = ${result}`);
+    console.log(cian, `${firstNumber} ${operation} ${secondNumber} = ${result}`);
 }
 
 switch(operation) {
@@ -23,17 +29,23 @@ switch(operation) {
         result = firstNumber * secondNumber;
     break;
     default:
-        operation = "invalid";
+        operation = operation != undefined ? "invalid" : operation;
 }
 
-if (process.argv.length < 3) {
-    console.log(`Parâmetro faltando. Esperava 2 parâmetros, mas recebi apenas 1`);
-} else if (typeof firstNumber !== "number") {
-    console.log(`Tipo incorreto. Esperava número como primeiro parâmetro`);
-} else if (typeof secondNumber !== "number") {
-    console.log(`Tipo incorreto. Esperava número como segundo parâmetro`);
+console.log(isNaN(Number(secondNumber)))
+console.log(operation)
+if (firstNumber === undefined) {
+    console.log(red, "Parâmetro faltando. Esperava 3 parâmetros, mas não recebi nenhum");
+} else if (operation === undefined) {
+    console.log(red, "Parâmetro faltando. Esperava 3 parâmetros, mas recebi apenas 1");
+} else if (operation !== undefined && secondNumber === undefined) {
+    console.log(red, "Parâmetro faltando. Esperava 3 parâmetros, mas recebi apenas 2");
+} else if (isNaN(Number(firstNumber))) {
+    console.log(red, "Tipo inválido. Esperava número como primeiro parâmetro");
+} else if (isNaN(Number(secondNumber))) {
+    console.log(red, "Tipo inválido. Esperava número como terceiro parâmetro");
 } else if (operation === "invalid") {
-    console.log("\x1b[31m%s\x1b[0m", "Operação inválida.", "\nOperações possíveis: \"+\", \"-\", \"/\" ou \"*\"");
+    console.log(red, "Operação inválida. \nDigite: \"+\", \"-\", \"/\" ou \"*\"");
 } else {
     printResult(firstNumber, operation, secondNumber);
 }
