@@ -1,26 +1,18 @@
 var fs = require('fs');
 
 // Exercício 3
+const tarefaNova = process.argv[2];
 
-const tarefaNova = process.argv[3];
+fs.readFile('tarefas.json', 'utf8', (err, data) => {
+  if (err) throw err;
 
-const exibirTarefas = (tarefaNova) => {
-
-    fs.open('tarefas.txt', tarefaNova, (err, fd) => {
-        if (err) throw err;
-        fs.appendFile(fd, 'data to append', 'utf8', (err) => {
-          fs.close(fd, (err) => {
-            if (err) throw err;
-          });
-          if (err) throw err;
-        });
-      });
-
-    // fs.readFile('/tarefas.txt', 'utf8',  (err, data) => {
-    //     if (err) throw err;
-    //     console.log(data);
-    // }
-    // );
-}
-
-exibirTarefas(tarefaNova);
+  let tarefas = [];
+  if (data !== undefined) {
+    tarefas = JSON.parse(data);
+  }
+  
+  tarefas = [...tarefas, tarefaNova];
+  fs.writeFile('tarefas.json', JSON.stringify(tarefas), 'utf8', (err) => {
+    if (err) throw err;
+  });
+});
