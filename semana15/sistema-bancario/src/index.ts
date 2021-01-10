@@ -20,6 +20,20 @@ type payment = {
     description: string,
 }
 
+type addBalance = {
+    name: string,
+    cpf: string,
+    value: number
+}
+
+type transfer = {
+    seName: string,
+    seCpf: string,
+    reName: string,
+    reCpf: string,
+    value: number,
+}
+
 const accounts: account[] = [
     {
         name: "Pedro",
@@ -49,18 +63,68 @@ const accounts: account[] = [
     },
 ]
 
-app.put("/profile", (req: Request, res: Response) => {
+app.get("/users", (req: Request, res: Response) => {
     let errorCode = 400;
+
+    try {
+        const result = accounts.map(account => account.name)
+        
+        res.status(200).send(result);
+    } catch {
+        res.status(errorCode).send("Erro ao exibir usuários.");
+    }
+})
+
+app.post("/users", (req: Request, res: Response) => {
+    let errorCode = 400;
+    // let birthday = req.body.birthday.split(", ");
+    // birthday = birthday.reverse();
+    // let leapYears = 0;
+
+    // for (let i = new Date(birthday).getFullYear(); i < new Date().getFullYear(); i++) {
+    //     console.log("Ano: ", i, "Anos bissextos: ", leapYears);
+    //     if (i % 4 === 0) {
+    //         console.log("Ano: ", i, "Anos bissextos: ", leapYears);
+    //         if (i % 100 === 0 && i % 400 === 0) {
+    //             leapYears++;
+    //             console.log("Ano: ", i, "Anos bissextos: ", leapYears);
+    //             if ((new Date("22, 03, " + new Date().getFullYear()).getTime() - new Date("01, 01, " + new Date().getFullYear()).getTime()) >= 172800000) {
+    //                 console.log("Ano bissexto: ", leapYears);
+    //                 leapYears++;
+    //             }
+    //         }
+    //     }
+    // }
+
+    // let dateLeap = ("01, 03, " + new Date().getFullYear()).split(", ").reverse().join(", ");
+    // let startYear = ("01, 01, " + new Date().getFullYear()).split(", ").reverse().join(", ");
+    // console.log("Teste: ", new Date(dateLeap).getTime() - new Date(startYear).getTime());
+    // console.log("Data formatada: ", birthday);
+    // console.log(new Date("01, 03, " + new Date().getFullYear()).getTime() - new Date("01, 01, " + new Date().getFullYear()).getTime());
+    // console.log(Date.now());
+    // console.log(new Date().getFullYear());
+    // console.log("Data: " + new Date(birthday).getTime(), " Agora: " + Date.now())
+
+    // console.log(leapYears)
+    // console.log(((Date.now() - new Date(birthday).getTime()) - leapYears * 86400000) < 567648000000);
+    // console.log(Date.now() - new Date(birthday).getTime());
     
     try {
         if (!req.body.name || !req.body.cpf || !req.body.birthday) {
             errorCode = 401;
+            throw new Error;
+        }
+
+        if (Date.now() - req.body.birthday < 18) {
+            errorCode = 405;
+            throw new Error;
         }
 
         const result = accounts.find(account => account.cpf === req.body.cpf)
         
         if (result) {
             errorCode = 505;
+            throw new Error;
         }
         
         const newAccount: account = {
@@ -75,80 +139,183 @@ app.put("/profile", (req: Request, res: Response) => {
 
         res.status(200).send(accounts[accounts.length]);
     } catch {
-        res.status(401).send("Erro ao criar conta.");
+        res.status(errorCode).send("Erro ao criar conta.");
     }
 })
 
-app.get("/profile/:name/balance", (req: Request, res: Response) => {
+app.get("/users/:name/balance", (req: Request, res: Response) => {
     let errorCode = 400;
     
     try {
         if (!req.params.name) {
-            errorCode = 401;
+            errorCode = 403;
         }
 
-        const result = accounts.find(account => account.name === req.params.name)
+        let result: object | any = accounts.find(account => account.name === req.params.name
+            && account.cpf === req.body.cpf
+        );
+        
+        if (!result) {
+            errorCode = 505;
+        }
+        
+        if (result && result.balance) {
+            // result = result.balance;
+            let resultBalance: object = {
+                saldo: result.balance
+            }
 
+            console.log(result.balance)
+            res.status(200).send(resultBalance);
+        }
+
+    } catch {
+        res.status(errorCode).send("Erro ao exibir saldo.");
+    }
+})
+
+app.put("/users/:name/balance", (req: Request, res: Response) => {
+    let errorCode = 400;
+    
+    try {
+        if (!req.params.name || !req.body.cpf) {
+            errorCode = 401;
+        }
+        
+        const addBalance: addBalance = {
+            name: req.body.name,
+            cpf: req.body.cpf,
+            value: req.body.value,
+        }
+
+        const result: object | any = accounts.find(account => account.name === addBalance.name
+            && account.cpf === req.body.cpf
+            )
+
+        result.balance = result.balance + addBalance.value;
+
+        const resultBalance: object = {
+            saldo: result.balance
+        }
+
+        const payment: payment = {
+            value: req.body.value,
+            date: Date.now().toString(),
+            description: "Depósito de dinheiro",
+        }
+
+        result.bills.push(payment);
+        
         if (!result) {
             errorCode = 505;
         }
 
         console.log(result)
-        res.status(200).send(result?.balance);
+        res.status(200).send(resultBalance);
     } catch {
         res.status(401).send("Erro ao exibir saldo.");
     }
 })
 
-app.put("/profile/:name/balance", (req: Request, res: Response) => {
+app.post("/users/:name/payment", (req: Request, res: Response) => {
     let errorCode = 400;
+    let message = "Erro ao fazer pagamento.";
     
     try {
-        if (!req.params.name) {
+        if (!req.body.value || !req.body.description) {
             errorCode = 401;
         }
 
-        const result = accounts.find(account => account.name === req.params.name)
+        const payment: payment = {
+            value: req.body.value,
+            date: !req.body.date ? Date.now() : req.body.date,
+            description: req.body.description,
+        }
+
+        let result: object | any = accounts.find(account => account.name === req.params.name)
 
         if (!result) {
             errorCode = 505;
         }
 
-        console.log(result)
-        res.status(200).send(result?.balance);
+        let date = req.body.date.split(", ");
+        date = date.reverse();
+        // let date = req.body.date.split(", ");
+        // let newDate: any = [];
+        // newDate = newDate.push(date[1], date[0], date[2])
+        // newDate = newDate.join(", ");
+        console.log("Data formatada: ", date);
+        console.log("Data: " + new Date(date).getTime(), " Agora: " + new Date().getTime())
+        // const balance = result.balance - payment.value;
+        if (new Date(date).getTime() < Date.now()) {
+            errorCode = 502;
+            message = "Data inválida.";
+            throw new Error;
+        }
+
+        if (result.balance - payment.value < 0) {
+            errorCode = 502;
+            message = "Saldo insuficiente.";
+            throw new Error;
+        }
+
+        result.balance = result.balance - payment.value;
+
+        result?.bills.push(payment);
+
+        res.status(200).send([result?.bills, result.balance]);
     } catch {
-        res.status(401).send("Erro ao exibir saldo.");
+        res.status(errorCode).send(message);
     }
 })
 
-app.put("/profile/:name/payment", (req: Request, res: Response) => {
+app.post("/users/:name/transfer", (req: Request, res: Response) => {
     let errorCode = 400;
+    let message = "Erro ao fazer pagamento.";
     
     try {
         if (!req.body.value || !req.body.date || !req.body.description) {
             errorCode = 401;
         }
 
-        let result = accounts.find(account => account.name === req.params.name)
+        const transfer: transfer = {
+            seName: req.body.seName,
+            seCpf: req.body.seCpf,
+            reName: req.body.reName,
+            reCpf: req.body.reCpf,
+            value: req.body.value,
+        }
 
-        if (!result) {
+        let sender: object | any = accounts.find(account => account.name === req.params.name
+            && account.cpf === req.body.seCpf)
+        let receiver: object | any = accounts.find(account => account.name === req.params.name
+            && account.cpf === req.body.reCpf)
+
+        if (!sender || !receiver) {
             errorCode = 505;
         }
 
+        if (sender.balance - transfer.value < 0) {
+            errorCode = 502;
+            message = "Saldo insuficiente.";
+            throw new Error;
+        }
+
+        sender.balance = sender.balance - transfer.value;
+        receiver.balance = receiver.balance + transfer.value;
+
         const payment: payment = {
             value: req.body.value,
-            date: req.body.date,
+            date: !req.body.date ? Date.now() : req.body.date,
             description: req.body.description,
         }
 
-        const balance = result.balance - payment.value;
-        // const result2 = {...result, balance: balance - payment.value}
+        sender.bills.push(payment);
+        receiver.bills.push(payment);
 
-        result?.bills.push(payment)
-
-        res.status(200).send(result?.bills);
+        res.status(200).send([sender.balance, receiver.balance]);
     } catch {
-        res.status(401).send("Erro ao fazer pagamento.");
+        res.status(errorCode).send(message);
     }
 })
 
