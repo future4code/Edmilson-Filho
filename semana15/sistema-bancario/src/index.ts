@@ -77,9 +77,9 @@ app.get("/users", (req: Request, res: Response) => {
 
 app.post("/users", (req: Request, res: Response) => {
     let errorCode = 400;
-    // let birthday = req.body.birthday.split(", ");
-    // birthday = birthday.reverse();
-    // let leapYears = 0;
+    let birthday = req.body.birthday.split(", ");
+    birthday = birthday.reverse();
+    let leapYears = 0;
 
     // for (let i = new Date(birthday).getFullYear(); i < new Date().getFullYear(); i++) {
     //     console.log("Ano: ", i, "Anos bissextos: ", leapYears);
@@ -105,9 +105,16 @@ app.post("/users", (req: Request, res: Response) => {
     // console.log(new Date().getFullYear());
     // console.log("Data: " + new Date(birthday).getTime(), " Agora: " + Date.now())
 
-    // console.log(leapYears)
+    leapYears = new Date().getFullYear() - new Date(birthday).getFullYear() - 1;
+
+    // if (new Date().getDate() >= new Date(birthday).getDate() && new Date().getMonth() >= new Date(birthday).getMonth()) {
+    //     leapYears++;
+    // }
+
+    console.log(leapYears)
     // console.log(((Date.now() - new Date(birthday).getTime()) - leapYears * 86400000) < 567648000000);
-    // console.log(Date.now() - new Date(birthday).getTime());
+    console.log((Date.now() - new Date(birthday).getTime()) >= 567648000000);
+    console.log(Date.now() - new Date(birthday).getTime());
     
     try {
         if (!req.body.name || !req.body.cpf || !req.body.birthday) {
@@ -192,11 +199,11 @@ app.put("/users/:name/balance", (req: Request, res: Response) => {
             && account.cpf === req.body.cpf
             )
 
-        result.balance = result.balance + addBalance.value;
+        // result.balance = result.balance + addBalance.value;
 
-        const resultBalance: object = {
-            saldo: result.balance
-        }
+        // const resultBalance: object = {
+        //     saldo: result.balance
+        // }
 
         const payment: payment = {
             value: req.body.value,
@@ -211,7 +218,7 @@ app.put("/users/:name/balance", (req: Request, res: Response) => {
         }
 
         console.log(result)
-        res.status(200).send(resultBalance);
+        res.status(200).send(payment);
     } catch {
         res.status(401).send("Erro ao exibir saldo.");
     }
@@ -318,6 +325,27 @@ app.post("/users/:name/transfer", (req: Request, res: Response) => {
         res.status(errorCode).send(message);
     }
 })
+
+// app.put("/users/:name/update", (req: Request, res: Response) => {
+//     let errorCode = 400;
+//     let message = "Erro ao fazer pagamento.";
+    
+//     try {
+//         // result.balance = result.balance + addBalance.value;
+        
+//         let result: object | any = accounts.find(account => account.name === req.params.name)
+//         // result = result.map(account => account.bills)
+//         // let resultBalance: object | any = result.reduce(account => account.balance === req.params.name)
+        
+//         // const resultBalance: object = {
+//         //     saldo: result.balance
+//         // }
+
+//         res.status(200).send(resultBalance);
+//     } catch {
+//         res.status(errorCode).send(message);
+//     }
+// })
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
