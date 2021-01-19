@@ -8,6 +8,7 @@ import getUser from "./endpoints/getUser";
 import getUserByType from "./endpoints/getUserByType";
 import getAllUsersOrdered from "./endpoints/getAllUsersOrdered";
 import getAllUsersUpTo5 from "./endpoints/getAllUsersUpTo5";
+import getByAllFilters from "./endpoints/getByAllFilters";
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.get("/user/search", getUser);
 app.get("/user/:type", getUserByType);
 app.get("/user/all/:order", getAllUsersOrdered);
 app.get("/user/all/top5", getAllUsersUpTo5);
+app.get("/user/:type/:order/:limit", getByAllFilters);
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {

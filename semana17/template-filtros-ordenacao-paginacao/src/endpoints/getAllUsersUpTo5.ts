@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { connection } from "../index"
 import selectAllUsersUpTo5 from '../data/selectAllUsersUpTo5'
 
-export const getAllUsers = async(req: Request,res: Response): Promise<void> =>{
+export default async function getAllUsersUpTo5(req: Request,res: Response): Promise<void>{
     try {
        const users = await selectAllUsersUpTo5()
  

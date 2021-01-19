@@ -2,11 +2,12 @@ import { Request, Response } from 'express';
 import { connection } from "../index"
 import selectByAllFilters from '../data/selectByAllFilters'
 
-export const getByAllFilters = async(req: Request,res: Response): Promise<void> =>{
+export default async function getByAllFilters(req: Request,res: Response): Promise<void>{
     try {
-        let { filter = "id", order = "name DESC"} = req.params;
+        let { type = "id", order = "name DESC" } = req.params;
+        const { limit = 5 } = req.params;
         let { offset = 0 } = req.params;
-       const users = await selectByAllFilters(filter, order, offset)
+       const users = await selectByAllFilters(type, order, Number(limit), Number(offset))
  
        if(!users.length){
           res.statusCode = 404
@@ -16,7 +17,7 @@ export const getByAllFilters = async(req: Request,res: Response): Promise<void> 
        res.status(200).send(users)
 
        if (offset !== 0) {
-           offset += 5;
+          offset = Number(offset) + Number(limit)
        }
     } catch (error) {
        console.log(error)

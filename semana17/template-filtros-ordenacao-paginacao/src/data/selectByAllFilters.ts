@@ -1,11 +1,12 @@
 import { connection } from "../index"
 
-export default async function selectAllUsers(filter: string, order: string, offset: number):Promise<any> {
+export default async function selectByAllFilters(type: string, order: string, limit: number, offset: number):Promise<any> {
     const result = await connection.raw(`
        SELECT id, name, email, type
        FROM aula48_exercicio
-       ORDER BY ${filter}
-       LIMIT ${offset}
+       ${type && `WHERE type = "${type}"`}
+       ORDER BY ${order}
+       LIMIT ${limit}
        OFFSET ${offset}
     `)
  
