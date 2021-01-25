@@ -1,0 +1,22 @@
+Exercicio 1
+
+A) Acho que é utilizar string e números é melhor do que usar apenas números, porque o número de tokens que podem ser criados são maiores, as chances de serem descobertos menos, assim como a de conflito são menores
+
+
+Exercicio 2
+
+A) A função assíncrona recebe id, email e password e insere esses parâmetros na tabela User.
+
+B)  id VARCHAR(255) PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+
+Exercicio 3
+
+A) Define o tipo para string. Precisamos para assegurarmos que é apenas string e não undefined | string
+
+Exercicio 7
+
+A) É preciso para definir o tipo de payload para any, já que a variável recebe um id como string e a função dentro dela retorna o tipo implícito é string | object que nem sempre corresponde á referência de payload.id
+
+B)
