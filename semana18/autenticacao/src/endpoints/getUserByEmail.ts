@@ -2,8 +2,9 @@ import { Request, Response } from 'express';
 import axios from 'axios';
 import { generateToken } from '../services/generateToken';
 import { selectUserByEmail } from '../data/selectUserByEmail';
+var bcrypt = require('bcryptjs');
 
-axios.get("/login", async (req: Request, res: Response) => {
+export const getUserByEmail = async (req: Request, res: Response) => {
     try {
         const { email, password } = req.body;
 
@@ -17,6 +18,14 @@ axios.get("/login", async (req: Request, res: Response) => {
         }
 
         const user = await selectUserByEmail(userData.email);
+
+        const validPassword = bcrypt.compare(userData.password, user.password, function(err: string, res: string) {
+            return res;
+        });
+
+        if (!validPassword) {
+            throw new Error("Invalid password.");
+        }
 
         if (email === "") {
             throw new Error("Don't leave the fields in blank.")
@@ -42,4 +51,4 @@ axios.get("/login", async (req: Request, res: Response) => {
             message: err.message
         });
     }
-})
+}

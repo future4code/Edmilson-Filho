@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { Request, Response } from 'express';
 import { generateId } from '../services/generateId';
 import { generateToken } from '../services/generateToken';
 import { insertUser } from '../data/insertUser';
+var bcrypt = require('bcryptjs');
 
-axios.post("/signup", async (req: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response) => {
     try {
         const { email, password } = req.body;
 
@@ -16,9 +16,17 @@ axios.post("/signup", async (req: Request, res: Response) => {
             throw new Error("Don't leave the fields in blank.")
         }
 
+        const cryptedPassword = bcrypt.genSalt(10, function(err: string, salt: string) {
+            bcrypt.hash(password, salt, function(err: string, hash: string) {
+                return hash;
+            });
+        });
+
+        console.log(cryptedPassword)
+
         const input = {
             "email": email,
-            "password": password
+            "password": cryptedPassword
         }
 
         const id = generateId();
@@ -37,4 +45,4 @@ axios.post("/signup", async (req: Request, res: Response) => {
             message: err.message
         });
     }
-});
+};
