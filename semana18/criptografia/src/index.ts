@@ -3,9 +3,11 @@ import cors from 'cors';
 import { AddressInfo } from "net";
 import knex from 'knex';
 import dotenv from 'dotenv';
-import { getLoggedUser } from '../../criptografia/src/endpoints/getLoggedUser';
+import { getUserById } from './endpoints/getUserById';
 import { createUser } from '../../criptografia/src/endpoints/createUser';
 import { getUserByEmail } from '../../criptografia/src/endpoints/getUserByEmail';
+import { getUserByIdAdmin } from '../../criptografia/src/endpoints/getUserByIdAdmin';
+import { removeUser } from '../../criptografia/src/endpoints/removeUser';
 
 dotenv.config();
 
@@ -25,8 +27,10 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/signup", createUser);
-app.get("/login", getUserByEmail);
-app.get("/user/profile", getLoggedUser);
+app.post("/login", getUserByEmail);
+app.delete("/user/:id", removeUser);
+app.get("/user/", getUserById);
+app.get("/user/profile", getUserByIdAdmin);
 
 const server = app.listen(process.env.PORT || 3303, () => {
     if (server) {

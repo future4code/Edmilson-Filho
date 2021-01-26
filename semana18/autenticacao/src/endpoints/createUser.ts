@@ -4,7 +4,7 @@ import { generateToken } from '../services/generateToken';
 import { insertUser } from '../data/insertUser';
 var bcrypt = require('bcryptjs');
 
-export const createUser = async (req: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const { email, password } = req.body;
 
@@ -26,7 +26,7 @@ export const createUser = async (req: Request, res: Response) => {
 
         const input = {
             "email": email,
-            "password": cryptedPassword
+            "password": password
         }
 
         const id = generateId();
@@ -41,7 +41,7 @@ export const createUser = async (req: Request, res: Response) => {
             token
         });
     } catch (err) {
-        err.status(400).send({
+        res.status(400).send({
             message: err.message
         });
     }

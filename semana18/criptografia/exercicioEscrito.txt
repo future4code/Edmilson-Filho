@@ -1,0 +1,8 @@
+Exercicio 1
+
+A) round é o cost que é um fator de segurança de senha. Salt é uma string arbitrária que é adiciona á senha para dificultá-la e torná-la menos previsível
+
+Exercicio 2
+
+A) O cadastro, já que os usuários precisam ter um role, e os já cadastrados não possuem, impossibilitando fazer o login
+D) Sim, para retornar o role na saída
