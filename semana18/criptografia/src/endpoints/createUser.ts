@@ -8,7 +8,7 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
     try {
         const { email, password, role } = req.body;
 
-        if (!email || !password || !password) {
+        if (!email || !password || !role) {
             throw new Error("Fill out all of the fields.");
         }
 

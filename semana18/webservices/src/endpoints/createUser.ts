@@ -6,19 +6,22 @@ import { hash } from '../services/hashManager';
 
 export const createUser = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { email, password, role, cep, numero, complemento } = req.body;
+        const { email, password, cep, numero, role, complemento } = req.body;
 
         if (!email || !password || !role || !cep || !numero || !complemento) {
             throw new Error("Fill out all of the fields.");
         }
 
-        if (email === "" || password === "" || role === "" || !cep || !numero || !complemento) {
+        if (email === "" || password === "" || role === "" || cep === ""|| numero === "" || complemento === "") {
             throw new Error("Don't leave the fields in blank.");
         }
 
         const cypherPassword = await hash(password);
 
-        const userData = {
+        const id = generateId();
+
+        let userData = {
+            "id": id,
             "email": email,
             "password": cypherPassword,
             "cep": cep,
@@ -27,21 +30,23 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
             "complemento": complemento
         }
 
-        const id = generateId();
-
-        await insertUser(id, userData.email, userData.password, userData.role, userData.cep, userData.numero, userData.complemento);
+        await insertUser(userData);
         
+        console.log("userData", userData)
         const token = generateToken({
             id,
-            role
+            role,
+            cep
         });
+
+        console.log("Token", token)
         
         res.status(200).send({
             token
         });
     } catch (err) {
-        res.status(400).send({
-            message: err.message
-        });
+        res.status(400).send(
+            err.message || err.sqlMessage
+        );
     }
 };

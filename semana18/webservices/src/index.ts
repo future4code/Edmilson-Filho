@@ -1,16 +1,16 @@
-import Express, { express, Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 import { AddressInfo } from 'net';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import knex from 'knex';
 import { getUserById } from './endpoints/getUserById';
-import { createUser } from '../../criptografia/src/endpoints/createUser';
-import { getUserByEmail } from '../../criptografia/src/endpoints/getUserByEmail';
-import { getUserByIdAdmin } from '../../criptografia/src/endpoints/getUserByIdAdmin';
-import { removeUser } from '../../criptografia/src/endpoints/removeUser';
+import { createUser } from '../../webservices/src/endpoints/createUser';
+import { getUserByEmail } from '../../webservices/src/endpoints/getUserByEmail';
+import { getUserByIdAdmin } from '../../webservices/src/endpoints/getUserByIdAdmin';
+import { removeUser } from '../../webservices/src/endpoints/removeUser';
 
 dotenv.config();
-
+console.log("DB_HOST", process.env.DB_HOST)
 export const connection = knex({
     client: "mysql",
     connection: {
@@ -22,7 +22,7 @@ export const connection = knex({
     }
 })
 
-const app: Express = express();
+const app = express();
 app.use(express.json());
 app.use(cors());
 
