@@ -3,14 +3,19 @@ import { connection } from '..';
 const userTableName = "User";
 
 export const insertUser = async (
-    id: string,
-    email: string,
-    password: string,
-    role: string
+    userData: any
     ) => {
+
+    const id = userData.id;
+    const name = userData.name;
+    const email = userData.email;
+    const password = userData.password;
+    const role = userData.role;
+        
     await connection
     .insert({
         id,
+        name,
         email,
         password,
         role

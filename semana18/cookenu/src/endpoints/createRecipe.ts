@@ -3,7 +3,7 @@ import { insertRecipe } from '../data/insertRecipe';
 import { generateId } from '../services/generateId';
 import { generateToken } from '../services/generateToken';
 import { hash } from '../services/hashManager';
-
+import dayjs from 'dayjs'
 export async function createRecipe(req: Request, res: Response): Promise<void> {
     try {
         const { title, description, date } = req.body;
@@ -16,10 +16,12 @@ export async function createRecipe(req: Request, res: Response): Promise<void> {
             throw new Error("Nome, description ou senha em branco.");
         }
 
+        let formatedDate = dayjs(date).format('YYYY/MM/DD');
+        
         const recipeData = {
             "title": title,
             "description": description,
-            "date": date
+            "date": formatedDate
         }
 
         await insertRecipe(recipeData);

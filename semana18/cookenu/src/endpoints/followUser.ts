@@ -6,8 +6,6 @@ import { InsertFollowedUser } from '../data/InsertFollowedUser';
 import { getData } from '../services/getData';
 
 export async function followUser(req: Request, res: Response) {
-    console.log(req.body.userId);
-    console.log(req.headers.authorization);
     try {
         const { userId } = req.body;
         const token = req.headers.authorization as string;

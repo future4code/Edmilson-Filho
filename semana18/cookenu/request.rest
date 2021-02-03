@@ -33,8 +33,15 @@ Content-Type: application/json
 {
     "title": "Torta de sorvete e brigadeiro na travessa",
     "description": "Em uma tigela, misture o biscoito, a margarina e a clara até formar uma farofa úmida. Forre o fundo de um refratário redondo, apertando com os dedos. Leve ao forno médio, preaquecido, por 8 minutos ou até assar e dourar. Retire e reserve. Em uma panela, leve o leite condensado, o chocolate e a manteiga ao fogo médio, mexendo até engrossar. Desligue, deixe amornar e misture com o creme de leite. Disponha o sorvete sobre a massa e espalhe brigadeiro por cima, às colheradas, mesclando. Leve ao congelador por 4 horas. Decore com granulado, cerejas e sirva.",
-    "date": "02/02/2021"
+    "date": "2019-01-25"
 }
+
+###
+
+GET http://localhost:3003/recipe/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwZjgyZmExLTMzYWUtNGVjOC1iMjRlLTcwNmVmNTFmZmZlNSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2MTIzMjQ3MDUsImV4cCI6MTYxMjMyNDc2NX0.S45juEWz1kL-J6T2nMIK0cSMIJxELb0m4bL1ZjU2xmE
+
 ###
 
 POST http://localhost:3003/follow
