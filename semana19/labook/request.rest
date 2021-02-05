@@ -1,0 +1,38 @@
+###
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Ed3",
+    "email": "Ed3@gmail.com",
+    "password": "Ed12345"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "name": "Ed",
+    "email": "Ed@gmail.com",
+    "password": "Ed12345"
+}
+
+###
+
+PUT http://localhost:3003/post/create
+Content-Type: application/json
+
+{
+   "photo": "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png",
+   "descricao": "Mount Etna, Europe's most active volcano, erupts into the night sky. This is the third time already this year the volcano has erupted - the site had been evacuated and secured, as volcanic activity was largely expected.",
+   "created_at": "2021/02/05",
+   "type": "NORMAL"
+}
+
+###
+
+GET http://localhost:3003/post/6990e407-28a5-4b17-b51d-cb757c98974e
+Content-Type: application/json

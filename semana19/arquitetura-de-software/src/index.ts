@@ -1,32 +1,14 @@
-import express, { Express, request, Request, Response } from 'express';
-import knex from 'knex';
-import cors from 'cors';
+import express, { Express } from 'express';
 import { AddressInfo } from 'net';
-import dotenv from 'dotenv';
-import { createUser } from './endpoints/createUser';
-import { getUserByEmail } from './endpoints/getUserByEmail';
-import { getAllUsers } from './endpoints/getAllUsers';
-import { removeUser } from './endpoints/removeUser';
-
-dotenv.config();
+import { signup, login, getAllUsers, removeUser } from './controller/userController';
+import cors from 'cors';
 
 const app: Express = express();
 app.use(express.json());
 app.use(cors());
 
-export const connection: knex = knex({
-    client: "mysql",
-    connection: {
-        host: process.env.DB_HOST,
-        port: Number(process.env.DB_PORT) || 3306,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME,
-    }
-});
-
-app.post("/signup", createUser);
-app.post("/login", getUserByEmail);
+app.post("/signup", signup);
+app.post("/login", login);
 app.get("/user/all", getAllUsers);
 app.delete("/user/:id", removeUser);
 
