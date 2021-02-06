@@ -1,16 +1,32 @@
 import { Request, Response } from "express";
 import { businessCreatePost, businessGetPostById } from "../business/postBusiness";
+import { getTokenData } from "../business/services/authenticator";
 
 export const getPostById = async (
    req: Request,
    res: Response
 ) => {
    try {
+      const { id } = req.params;
+      const token = req.headers.authorization as string;
 
-      const { id } = req.params
+      if (
+         !id ||
+         !token ||
+         id === "" ||
+         token === ""
+         ) {
+         throw new Error("Preencha os campos de id e token.");
+      }
+
+      if (!token) {
+         throw new Error("Token inválido.");
+      }
+
+      getTokenData(token);
 
       const postWithUserInfo = await businessGetPostById(id)
-
+      
       res.status(200).send(postWithUserInfo)
 
    } catch (error) {
@@ -30,6 +46,10 @@ export const createPost = async (
          created_at,
          type
       } = req.body
+
+      const token = req.headers.authorization as string;
+
+      getTokenData(token);
 
       await businessCreatePost(
          photo,

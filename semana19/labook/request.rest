@@ -24,6 +24,7 @@ Content-Type: application/json
 
 PUT http://localhost:3003/post/create
 Content-Type: application/json
+Authorization: 
 
 {
    "photo": "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png",
@@ -36,3 +37,13 @@ Content-Type: application/json
 
 GET http://localhost:3003/post/6990e407-28a5-4b17-b51d-cb757c98974e
 Content-Type: application/json
+
+###
+
+PUT http://localhost:3003/user/friend
+Content-Type: application/json
+Authorization: 
+
+{
+   "id": ""
+}
