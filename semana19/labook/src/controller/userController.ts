@@ -12,20 +12,7 @@ export const login = async (
    try {
       const { email, password } = req.body
 
-      if (
-         !email ||
-         !password ||
-         email === "" ||
-         password === ""
-         ) {
-         throw new Error("Preencha os campos de email e senha.");
-      }
-
       const token = await businessLogin(email, password);
-
-      if (!token) {
-         throw new Error("Token inválido.");
-      }
 
       res.send({
          message: "Usuário logado!",

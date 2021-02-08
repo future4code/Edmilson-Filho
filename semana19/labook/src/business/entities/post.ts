@@ -3,5 +3,6 @@ export type post = {
    photo: string,
    descricao: string,
    created_at: string,
-   type: string
+   type: string,
+   userId: string
 }
