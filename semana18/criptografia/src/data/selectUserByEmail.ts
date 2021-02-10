@@ -9,4 +9,4 @@ export const selectUserByEmail = async(email: string): Promise<any> => {
     .where({ email });
 
     return result[0];
-}
+} 
