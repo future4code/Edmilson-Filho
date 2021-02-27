@@ -1,4 +1,4 @@
-import { performAttack, validateCharacter } from '../src/index';
+import { decreaseCharacterDefense, performAttack, recoverCharacters, validateCharacter } from '../src/index';
 import { Character } from '../src/types';
 
 describe("Validate character", () => {
@@ -84,7 +84,7 @@ describe("Validate perfoming an attack", () => {
 
     test("Should return", () => {
         const validatorMock = jest.fn(() => {
-            return false
+            return true
         });
 
         const attacker: Character = {
@@ -129,7 +129,7 @@ describe("Validate perfoming an attack", () => {
         }
 
         try {
-        performAttack(attacker, defender, validatorMock as any);
+            performAttack(attacker, defender, validatorMock as any);
         } catch (err) {
             expect(err.message).toBe("Invalid character");
             expect(validatorMock).toHaveBeenCalled();
@@ -139,7 +139,7 @@ describe("Validate perfoming an attack", () => {
     })
 
     test("Should return", () => {
-        const validatorMock = jest.fn(() => {
+        let validatorMock = jest.fn(() => {
             return false
         });
 
@@ -157,13 +157,159 @@ describe("Validate perfoming an attack", () => {
             life: 700
         }
 
+         validatorMock = jest.fn(() => {
+            return true
+        });
+
         try {
+            performAttack(attacker, defender, validatorMock as any);
             performAttack(attacker, defender, validatorMock as any);
         } catch (err) {
             expect(err.message).toBe("Invalid character");
             expect(validatorMock).toHaveBeenCalled();
             expect(validatorMock).toHaveBeenCalledTimes(2);
             expect(validatorMock).toHaveReturnedTimes(2);
+        }
+    })
+
+    test("Should return", () => {
+        let validatorMock = jest.fn(() => {
+            return false
+        });
+
+        const attacker: Character = {
+            name: "Chuck Norris",
+            attack: 0,
+            defense: 750,
+            life: 500
+        }
+
+        const defender: Character = {
+            name: "Myke Tyson",
+            attack: 1000,
+            defense: 850,
+            life: 700
+        }
+
+         validatorMock = jest.fn(() => {
+            return true
+        });
+
+        try {
+            performAttack(attacker, defender, validatorMock as any);
+            performAttack(attacker, defender, validatorMock as any);
+        } catch (err) {
+            expect(validatorMock).toBe(false);
+            expect(err.message).toBe("Invalid character");
+            expect(defender.life).toBe(700);
+        }
+    })
+
+    test("Should return", () => {
+        let validatorMock = jest.fn(() => {
+            return false
+        });
+
+        const attacker: Character = {
+            name: "",
+            attack: 0,
+            defense: 750,
+            life: 500
+        }
+
+        const defender: Character = {
+            name: "Myke Tyson",
+            attack: 1000,
+            defense: -850,
+            life: 0
+        }
+
+        try {
+            performAttack(attacker, defender, validatorMock as any);
+            performAttack(attacker, defender, validatorMock as any);
+        } catch (err) {
+            expect(validatorMock).toReturnWith(false);
+            expect(err.message).toBe("Invalid character");
+            expect(defender.life).toBe(0);
+        }
+    })
+
+    test("Should return", () => {
+        let validatorMock = jest.fn(() => {
+            return false
+        });
+
+        const characters = [
+            {
+                name: "",
+                attack: 0,
+                defense: 750,
+                life: 500
+            },
+            {
+                name: "Myke Tyson",
+                attack: 1000,
+                defense: -850,
+                life: 0
+            }
+        ]
+
+        try {
+            recoverCharacters(characters, validatorMock as any);
+            recoverCharacters(characters, validatorMock as any);
+        } catch (err) {
+            expect(validatorMock).toReturnWith(false);
+            expect(err.message).toBe("Invalid character");
+        }
+    })
+
+    test("Should return", () => {
+        let validatorMock = jest.fn(() => {
+            return false
+        });
+
+        const characters = [
+            {
+                name: "",
+                attack: 0,
+                defense: 750,
+                life: 500
+            },
+            {
+                name: "Myke Tyson",
+                attack: 1000,
+                defense: -850,
+                life: 0
+            }
+        ]
+
+        try {
+            recoverCharacters(characters, validatorMock as any);
+            recoverCharacters(characters, validatorMock as any);
+        } catch (err) {
+            expect(validatorMock).toReturnWith(false);
+            expect(err.message).toBe("Invalid character");
+        }
+    })
+
+    test("Should return", () => {
+        let validatorMock = jest.fn(() => {
+            return false
+        });
+
+        const character = {
+            name: "",
+            attack: 0,
+            defense: 750,
+            life: 500
+        }
+
+        try {
+            decreaseCharacterDefense(character, 500, validatorMock as any);
+            decreaseCharacterDefense(character, 500, validatorMock as any);
+        } catch (err) {
+            expect(validatorMock).toReturnWith(false);
+            expect(err.message).toBe("Invalid character");
         }
     })
 })

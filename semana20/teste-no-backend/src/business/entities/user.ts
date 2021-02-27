@@ -5,6 +5,11 @@ export enum POST_TYPE {
    EVENT = 'EVENT'
 }
 
+export enum USER_ROLE {
+   NORMAL = 'NORMAL',
+   ADMIN = 'ADMIN'
+}
+
 export type authenticationData = {
    id: string
 }
@@ -14,7 +19,7 @@ export type user = {
    name: string,
    email: string,
    password: string,
-   posts?: post[]
+   role: USER_ROLE
 }
 
 export type signupInputDTO = {

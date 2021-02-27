@@ -1,23 +1,17 @@
 import { post } from "../../business/entities/post";
-import { user, POST_TYPE } from "../../business/entities/user"
+import { user, USER_ROLE } from "../../business/entities/user"
 import { userRouter } from "../../controller/routes/userRouter";
 
-export const convertUserRoleToString = (role: POST_TYPE): string => {
-    return role === POST_TYPE.EVENT ? "event" : "normal";
+export const convertUserRoleToString = (role: USER_ROLE): string => {
+    return role === USER_ROLE.ADMIN ? "ADMIN" : "NORMAL";
 }
 
-export const convertStringToUserRole = (role: string): POST_TYPE => {
-    if (role === "event") {
-        return POST_TYPE.EVENT
-    } else if (role === "normal") {
-        return POST_TYPE.NORMAL
+export const convertStringToUserRole = (role: string): USER_ROLE => {
+    if (role === "ADMIN") {
+        return USER_ROLE.ADMIN
+    } else if (role === "NORMAL") {
+        return USER_ROLE.NORMAL
     };
     
     throw new Error("Invalid User Role");
 };
-
-export function setPosts(myUser: user, posts: post[]):user {
-    myUser.posts = posts;
-
-    return myUser;
-}

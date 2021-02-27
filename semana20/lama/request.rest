@@ -1,0 +1,54 @@
+###
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "Ed7@gmail.com",
+    "name": "Ed7",
+    "password": "12345",
+    "role": "admin"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "Ed7@gmail.com",
+    "password": "12345"
+}
+
+###
+
+POST http://localhost:3003/band/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYTVjMDU2LWU2ZjAtNDk2NC05Yjg0LWE3NDA3NjM5NDg4ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYxNDM4MzA1OCwiZXhwIjoxNjE0Mzg0NDk4fQ.93NRFfUFrxngVXwXnDhKCfEmR1XqYbN8bo9tSx3LIjA
+
+{
+    "name": "Avicii22",
+    "gender": "Electronic22",
+    "responsible": "Edmilson22"
+}
+
+###
+
+GET http://localhost:3003/band/get?name=Avicii
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/concert/create
+Content-Type: application/json
+
+{
+    "id": 22,
+    "date": "21/03/2021",
+    "datetime": "08:00"
+}
+
+###
+
+GET http://localhost:3003/concert?date="21/03/2021"
+Content-Type: application/json
