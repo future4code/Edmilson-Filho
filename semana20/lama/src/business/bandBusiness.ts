@@ -33,7 +33,6 @@ export const businessGetBand = async (
     if (!input) {
         throw new Error("Por favor, informe o id ou o nome");
     };
-
     
     const bandData = await selectBand(input);
 

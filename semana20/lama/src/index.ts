@@ -3,6 +3,7 @@ import cors from 'cors';
 import { userRouter } from './controller/routes/userRouter';
 import { bandRouter } from './controller/routes/bandRouter';
 import { concertRouter } from './controller/routes/concertRouter';
+import { ticketRouter } from './controller/routes/ticketRouter';
 
 const app: Express = express();
 

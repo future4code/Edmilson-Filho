@@ -55,15 +55,15 @@ export const businessLogin = async (
 
     const userData: User = await selectUserByEmail(input);
 
-    console.log(input.password)
     const isValidPassword: boolean = await compare(input.password, userData.password);
+
     if (!isValidPassword) {
         throw new Error("Senha incorreta.");
     }
-
+    
     const token: string = generateToken({
         id: userData.id,
-        role: userData.role
+        role: convertStringToUserRole(userData.role)
     });
 
     return token;

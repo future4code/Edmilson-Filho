@@ -3,6 +3,7 @@ import knex from 'knex';
 import { Concert } from '../business/entities/concert';
 
 const tableName = "band_concert";
+const concertImageTableName = "band_concert_photo";
 
 export const insertConcert = async (
     input: any
@@ -15,7 +16,6 @@ export const insertConcert = async (
         })
         .into(tableName);
     } catch (err) {
-        console.log(err.message || err.sqlMessage)
         throw new Error("Erro ao criar show.")
     }
 }
@@ -35,7 +35,36 @@ export const selectConcert = async (
 
         return result;
     } catch (err) {
-        console.log(err.message || err.sqlMessage)
         throw new Error("Erro ao exibir show(s).")
+    }
+}
+
+export const insertConcertImage = async (
+    concertImage: any
+): Promise<any> => {
+    try {
+        await connection
+        .insert({
+            band_concert_id: concertImage.bandConcertId,
+            photo: concertImage.photo
+        })
+        .into(concertImageTableName);
+    } catch (err) {
+        throw new Error("Erro ao adicionar image.")
+    }
+}
+
+export const selectConcertImages = async (
+    id: any
+): Promise<any> => {
+    try {
+        const result = await connection
+        .select("photo")
+        .from(concertImageTableName)
+        .where({band_concert_id: id});
+
+        return result;
+    } catch (err) {
+        throw new Error("Erro ao adicionar image.")
     }
 }

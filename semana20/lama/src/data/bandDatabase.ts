@@ -22,8 +22,6 @@ export const selectBand = async (
 ): Promise<Band | undefined> => {
     const tableName = "Band";
 
-    console.log(input)
-    
     try {
         const result = await connection
         .select("*")

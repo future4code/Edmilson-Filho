@@ -44,7 +44,7 @@ export const login = async (
         }
 
         const token: string = await businessLogin(inputData);
-
+        
         res
         .send({
             message: "Logado com sucesso!",

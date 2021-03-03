@@ -2,8 +2,9 @@ import dayjs from 'dayjs';
 var customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
-import { insertConcert, selectConcert } from '../data/concertDatabase';
+import { insertConcert, insertConcertImage, selectConcert, selectConcertImages } from '../data/concertDatabase';
 import { Concert } from './entities/concert';
+import { USER_ROLES } from './entities/user';
 
 export const businessCreateConcert = async (
     concert: Concert
@@ -20,8 +21,6 @@ export const businessCreateConcert = async (
         throw new Error("Formato de data incorreto")            
     }
 
-    // console.log("concert.date.get('day')", dayjs(concert.date).get('day'));
-
     if (dayjs(concert.date).get('day') > 0 && dayjs(concert.date).get('day') < 6) {
         throw new Error("Dia inválido. Os dias de show são sexta, sábado e domingo.");
     }
@@ -29,19 +28,12 @@ export const businessCreateConcert = async (
     const completeDate = dayjs(`${concert.date}T${concert.datetime}`, ['DD/MM/YYYYTHH', 'DD/MM/YYYYTHH:mm']);
     const completeDateMinute = dayjs(`${concert.date}T${concert.datetime}`, 'DD/MM/YYYYTHH:mm');
     
-    console.log("Dia", dayjs(`${concert.date}T${concert.datetime}`, ['DD/MM/YYYYTHH', 'DD/MM/YYYYTHH:mm']).get('day'));
-    console.log("Hora", dayjs(`${concert.date}T${concert.datetime}`, ['DD/MM/YYYYTHH', 'DD/MM/YYYYTHH:mm']).get('hour'));
-    console.log("Minute", dayjs(`${concert.date}T${concert.datetime}`, 'DD/MM/YYYYTHH:mm').get('minute'));
-    console.log(concert.datetime)
-    console.log(completeDate)
-    
     if (completeDateMinute.get('minute') > 0 || completeDate.get('hour') < 8 || completeDate.get('hour') > 23) {
         throw new Error("Horário inválido. Os horários de show são horários redondos das 8 hr ás 23 hr. Exemplo: 8:00.");
     }
 
     const concertData = {
         id: concert.id,
-        // datetime: concert.date
         datetime: dayjs(`${concert.date}T${concert.datetime}`, ['DD/MM/YYYYTHH', 'DD/MM/YYYYTHH:mm']).format("YYYY/MM/DDTHH")
     }
 
@@ -57,15 +49,54 @@ export const businessGetConcert = async (
         throw new Error("Por favor, informe a data do(s) show(s)");
     };
 
-    console.log(date)
-
-    // const formattedDate = dayjs(date, "DD/MM/YYYY").format("YYYY/MM/DD")
     const formattedDate = dayjs(`${date}T00:00`, "DD/MM/YYYYTHH").format("YYYY/MM/DDTHH:mm")
     const nextDate = dayjs(formattedDate).add(1, 'day').format("YYYY/MM/DDTHH:mm")
-
-    console.log(formattedDate)
-    console.log(nextDate)
     const concertData = await selectConcert(formattedDate, nextDate);
 
     return concertData;
+}
+
+export const businessAddConcertImage = async (
+    concertImage: any,
+    tokenData: any
+): Promise<void> => {
+    if (
+        !concertImage.bandConcertId ||
+        !concertImage.photo
+    ) {
+        throw new Error("Por favor, preencha todos os campos (bandConcertId e photo).");
+    };
+    
+    if (!tokenData) {
+        throw new Error("Token inválido");
+    }
+
+    if(tokenData.role !== USER_ROLES.ADMIN) {
+        throw new Error("Somente administradores podem adicionar imagens");
+    }
+
+    await insertConcertImage(concertImage);
+}
+
+export const businessGetConcertImage = async (
+    id: any,
+    tokenData: any
+): Promise<void> => {
+    if (
+        !id
+    ) {
+        throw new Error("Por favor, preencha o campo id.");
+    };
+    
+    if (!tokenData) {
+        throw new Error("Token inválido");
+    }
+
+    if (tokenData.role !== USER_ROLES.ADMIN) {
+        throw new Error("Apenas administradores podem ver as imagens do evento")
+    }
+    
+    const result = await selectConcertImages(id);
+
+    return result;
 }

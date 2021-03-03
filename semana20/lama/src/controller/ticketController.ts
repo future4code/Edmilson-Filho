@@ -1,18 +1,19 @@
 import { Request, Response } from 'express';
+import { businessBuyTicket, businessCreateTicket } from '../business/ticketBusiness';
 
 export const createTicket = async (
     req: Request,
     res: Response
 ): Promise<void> => {
    try {
-        const { name, id, bandConcertId, price } = req.body;
-        const token = req.headers.authorization;
+        const { name, bandConcertId, price, quantity } = req.body;
+        const token = req.headers.authorization as string;
 
         const ticket = {
             name,
-            id,
             bandConcertId,
-            price
+            price,
+            quantity
         }
 
         await businessCreateTicket(ticket, token);
@@ -28,14 +29,16 @@ export const buyTicket = async (
     res: Response
 ): Promise<void> => {
    try {
-        const { name, quantity } = req.body;
+        const name = req.body.name;
+        const quantity = Number(req.body.quantity);
+        const token = req.headers.authorization as string;
 
         const ticketData = {
             name,
             quantity
         }
 
-        await businessBuyTicket(ticketData);
+        await businessBuyTicket(ticketData, token);
         
         res.status(201).send({message: "Ticket criado com sucesso!"});
    } catch (err) {

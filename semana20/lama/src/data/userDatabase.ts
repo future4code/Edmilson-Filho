@@ -29,7 +29,7 @@ export const selectUserByEmail = async (
         .select("*")
         .where({email: input.email})
         .from(tableName)
-
+        
         return result[0]
     } catch (err) {
         throw new Error(err.message || err.sqlMessage);

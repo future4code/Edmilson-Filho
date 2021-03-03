@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
-import { businessCreateConcert, businessGetConcert } from "../business/concertBusiness";
+import { businessAddConcertImage, businessCreateConcert, businessGetConcert, businessGetConcertImage } from "../business/concertBusiness";
 import dayjs from 'dayjs';
+import { USER_ROLES } from "../business/entities/user";
+import { getTokenData } from "../business/services/authenticator";
 
 export const createConcert = async (
     req: Request,
@@ -30,11 +32,52 @@ export const getConcert = async (
     try {
         const { date } = req.query;
 
-        console.log(date)
-
         const result = await businessGetConcert(date)
 
         res.send(result)
+    } catch (err) {
+        res.send(err.message);
+    }
+}
+
+export const addConcertImage = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
+    try {
+        const bandConcertId = req.body.bandConcertId as number;
+        const photo = req.body.photo as string;
+
+        const concertImage = {
+            bandConcertId,
+            photo
+        }
+
+        const token = req.headers.authorization as string;
+
+        const tokenData = getTokenData(token);
+
+        await businessAddConcertImage(concertImage, tokenData)
+
+        res.send({message: "Imagem adicionada ao evento com sucesso!"})
+    } catch (err) {
+        res.send(err.message);
+    }
+}
+
+export const getConcertImage = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
+    try {
+        const id = Number(req.params.id);
+        const token = req.headers.authorization as string;
+
+        const tokenData = getTokenData(token);
+        
+        const result = await businessGetConcertImage(id, tokenData)
+
+        res.send({result})
     } catch (err) {
         res.send(err.message);
     }
