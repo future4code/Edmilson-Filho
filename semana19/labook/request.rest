@@ -1,0 +1,101 @@
+###
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Ed5",
+    "email": "Ed5@gmail.com",
+    "password": "Ed12345"
+}
+
+### LOGIN
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "name": "Ed",
+    "email": "Ed@gmail.com",
+    "password": "Ed12345"
+}
+
+###
+
+PUT http://localhost:3003/post/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNTg0Nzk0LWQ0MGQtNDdlMy1hNTc5LWY0Mjg3MzA2MTI0YSIsImlhdCI6MTYxMjc1NDIzNSwiZXhwIjoxNjEyNzU1Njc1fQ.7dlTIcbADz0jZ5iARZBff3Pyqk7-EgKd-SRx3XHgTBE
+
+{
+   "photo": "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png",
+   "descricao": "aMount Etna, Europe's most active volcano, erupts into the night sky. This is the third time already this year the volcano has erupted - the site had been evacuated and secured, as volcanic activity was largely expected.",
+   "type": "NORMAL"
+}
+
+###
+
+GET http://localhost:3003/post/6990e407-28a5-4b17-b51d-cb757c98974e
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3003/friend/add
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNTg0Nzk0LWQ0MGQtNDdlMy1hNTc5LWY0Mjg3MzA2MTI0YSIsImlhdCI6MTYxMjc1NDIzNSwiZXhwIjoxNjEyNzU1Njc1fQ.7dlTIcbADz0jZ5iARZBff3Pyqk7-EgKd-SRx3XHgTBE
+
+{
+   "friendId": "eb584794-d40d-47e3-a579-f4287306124a"
+}
+
+###
+
+DELETE  http://localhost:3003/friend/remove
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNTg0Nzk0LWQ0MGQtNDdlMy1hNTc5LWY0Mjg3MzA2MTI0YSIsImlhdCI6MTYxMjc1NDIzNSwiZXhwIjoxNjEyNzU1Njc1fQ.7dlTIcbADz0jZ5iARZBff3Pyqk7-EgKd-SRx3XHgTBE
+
+{
+   "friendId": "eb584794-d40d-47e3-a579-f4287306124a"
+}
+
+###
+
+GET http://localhost:3003/feed
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNTg0Nzk0LWQ0MGQtNDdlMy1hNTc5LWY0Mjg3MzA2MTI0YSIsImlhdCI6MTYxMjc1MjYzOSwiZXhwIjoxNjEyNzU0MDc5fQ.ao8-iOCGu91Gj_bhseWlCDB_PZtKJ0cXQ-n3wwC0tIw
+
+###
+
+GET http://localhost:3003/feed/normal
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNTg0Nzk0LWQ0MGQtNDdlMy1hNTc5LWY0Mjg3MzA2MTI0YSIsImlhdCI6MTYxMjcyNjQ4NiwiZXhwIjoxNjEyNzI3OTI2fQ.WuOpSRE50D8k0JyLlbSFSgrjLD11DBb9LkoToLzoQvY
+
+###
+
+POST http://localhost:3003/post/like
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNTg0Nzk0LWQ0MGQtNDdlMy1hNTc5LWY0Mjg3MzA2MTI0YSIsImlhdCI6MTYxMjc1NDIzNSwiZXhwIjoxNjEyNzU1Njc1fQ.7dlTIcbADz0jZ5iARZBff3Pyqk7-EgKd-SRx3XHgTBE
+
+{
+   "postId": "ae60faf0-70b3-49d2-a79f-3a240e23226b"
+}
+
+###
+
+DELETE http://localhost:3003/post/like
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNTg0Nzk0LWQ0MGQtNDdlMy1hNTc5LWY0Mjg3MzA2MTI0YSIsImlhdCI6MTYxMjc1NDIzNSwiZXhwIjoxNjEyNzU1Njc1fQ.7dlTIcbADz0jZ5iARZBff3Pyqk7-EgKd-SRx3XHgTBE
+
+{
+   "postId": "ae60faf0-70b3-49d2-a79f-3a240e23226b"
+}
+
+###
+
+PUT http://localhost:3003/post/comment
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNTg0Nzk0LWQ0MGQtNDdlMy1hNTc5LWY0Mjg3MzA2MTI0YSIsImlhdCI6MTYxMjc1NDIzNSwiZXhwIjoxNjEyNzU1Njc1fQ.7dlTIcbADz0jZ5iARZBff3Pyqk7-EgKd-SRx3XHgTBE
+
+{
+   "postId": "ae60faf0-70b3-49d2-a79f-3a240e23226b",
+   "comment": "gsdfsdfsdf"
+}
