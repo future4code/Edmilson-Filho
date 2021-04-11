@@ -1,0 +1,95 @@
+###
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "normal@gmail.com",
+    "name": "normal",
+    "password": "12345",
+    "role": "normal"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "normal@gmail.com",
+    "password": "12345"
+}
+
+###
+
+POST http://localhost:3003/band/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYTVjMDU2LWU2ZjAtNDk2NC05Yjg0LWE3NDA3NjM5NDg4ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYxNDM4MzA1OCwiZXhwIjoxNjE0Mzg0NDk4fQ.93NRFfUFrxngVXwXnDhKCfEmR1XqYbN8bo9tSx3LIjA
+
+{
+    "name": "Avicii22",
+    "gender": "Electronic22",
+    "responsible": "Edmilson22"
+}
+
+###
+
+GET http://localhost:3003/band/get?name=Avicii
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/concert/create
+Content-Type: application/json
+
+{
+    "id": 22,
+    "date": "21/03/2021",
+    "datetime": "08:00"
+}
+
+###
+
+GET http://localhost:3003/concert?date="21/03/2021"
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/concert/addImage
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYTVjMDU2LWU2ZjAtNDk2NC05Yjg0LWE3NDA3NjM5NDg4ZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxNDQ1OTg4MywiZXhwIjoxNjE0NDYxMzIzfQ.X3HCeys86dAhRTxscmJYZAIIqnfKfWBnf2LGmQhmwnc
+
+{
+    "bandConcertId": 1,
+    "photo": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+}
+
+###
+
+GET http://localhost:3003/concert/1/getImage
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYTVjMDU2LWU2ZjAtNDk2NC05Yjg0LWE3NDA3NjM5NDg4ZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxNDQ2MDM3MCwiZXhwIjoxNjE0NDYxODEwfQ.dXbeBCQM1ZJxnVgiOvsmhIHemYiKcUoTeASlCdK3nBY
+
+###
+
+POST http://localhost:3003/ticket/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYTVjMDU2LWU2ZjAtNDk2NC05Yjg0LWE3NDA3NjM5NDg4ZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxNDQ1NDk1MywiZXhwIjoxNjE0NDU2MzkzfQ.HtSp2jap60urxzn0yU5fLqErG8cAAfpqaNCvVbV5mts
+
+{
+    "name": "Blizzconn",
+    "bandConcertId": 1,
+    "price": 50,
+    "quantity": 15
+}
+
+###
+
+POST http://localhost:3003/ticket/buy
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYTVjMDU2LWU2ZjAtNDk2NC05Yjg0LWE3NDA3NjM5NDg4ZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxNDQ1NDk1MywiZXhwIjoxNjE0NDU2MzkzfQ.HtSp2jap60urxzn0yU5fLqErG8cAAfpqaNCvVbV5mts
+
+{
+    "name": "Blizzconn",
+    "quantity": 15
+}
