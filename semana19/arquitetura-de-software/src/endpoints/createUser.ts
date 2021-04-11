@@ -6,27 +6,29 @@ import { hash } from '../services/hashManager';
 
 export const createUser = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { email, password, role } = req.body;
+        const { name, email, password, role } = req.body;
 
-        if (!email || !password || !role) {
+        if (!name || !email || !password) {
             throw new Error("Fill out all of the fields.");
-        }
+        };
 
-        if (email === "" || password === "" || role === "") {
+        if (name === "" || email === "" || password === "") {
             throw new Error("Don't leave the fields in blank.");
-        }
+        };
 
         const cypherPassword = await hash(password);
 
+        const id = generateId();
+        
         const userData = {
+            "id": id,
+            "name": name,
             "email": email,
             "password": cypherPassword,
             "role": role,
-        }
+        };
 
-        const id = generateId();
-
-        await insertUser(id, userData.email, userData.password, userData.role);
+        await insertUser(userData);
         
         const token = generateToken({
             id,

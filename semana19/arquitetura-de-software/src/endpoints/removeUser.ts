@@ -6,25 +6,22 @@ export const removeUser = async (req: Request, res: Response): Promise<void> => 
     try {
         const { id } = req.params;
 
-        const { Authorization } = req.headers;
+        const token = req.headers.authorization;
 
-        const userData = getData(Authorization as string);
+        const userData = getData(token as string);
 
-        if (userData.role !== "admin") {
-            throw new Error("Only a normal user can access this funcionality");
+        console.log(userData)
+        if (userData.role !== "ADMIN") {
+            throw new Error("Only a admin user can access this funcionality");
         }
         
         if (!id) {
             throw new Error("Fill out all of the fields.");
         }
 
-        if (id) {
-            throw new Error("Don't leave the fields in blank.");
-        }
-
         await deleteUser(id);
 
-        res.status(200);
+        res.status(200).end();
     } catch (err) {
         res.status(400).send({
             message: err.message
