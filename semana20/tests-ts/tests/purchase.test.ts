@@ -3,6 +3,7 @@ import { identifyWhoCanEnter } from '../src/casino/index';
 import { LOCATION, NATIONALITY } from '../src/casino/types';
 import 'jest-extended';
 import { insertPost, removePost, selectPostById } from '../src/post/postDatabase';
+import { connection } from '../src/post/connection';
 
 declare global {
     namespace jest {
@@ -308,8 +309,14 @@ describe("Test create post to LaBook", () => {
         insertPost(post);
 
         const result: any = await selectPostById(post.id);
-        
+
         expect(result).toBeTruthy();
+        
         afterAll(async() => await removePost(post));
     })
+})
+
+afterAll(async () => {
+    
+    await connection.destroy();
 })
