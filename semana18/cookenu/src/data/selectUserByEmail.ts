@@ -1,14 +1,13 @@
-import knex from 'knex';
 import { connection } from '..';
 
 const tableName = "User";
 
-export async function selectUser(id: any) {
+export async function selectUserByEmail(email: string): Promise<any> {
     try {
-        const result: any = connection
-        .select("id", "email")
+        const result: any = await connection
+        .select("*")
         .from(tableName)
-        .where(id)
+        .where({ email })
         
         return result[0];
     } catch (err) {

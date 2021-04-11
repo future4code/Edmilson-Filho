@@ -1,15 +1,18 @@
-import * as JWT from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
+import { AuthenticationData } from '../types/types';
 
 const expiresIn = "1min";
 
-export function generateToken(input: any): string {
-    const token = JWT.sign(
+export const generateToken = (
+    input: AuthenticationData ): string => {
+    const token = jwt.sign(
         {
-            id: input.id
+            id: input.id,
+            role: input.role
         },
         process.env.JWT_KEY as string,
         { expiresIn: expiresIn }
-    )
+    );
 
     return token;
-}
+};

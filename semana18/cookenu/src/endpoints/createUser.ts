@@ -6,7 +6,7 @@ import { hash } from '../services/hashManager';
 
 export async function createUser(req: Request, res: Response): Promise<void> {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, role = "normal" } = req.body;
 
         if (!email || !name || !password) {
             throw new Error("Por favor, preencha todos os campos.");
@@ -22,7 +22,10 @@ export async function createUser(req: Request, res: Response): Promise<void> {
 
         const id = generateId();
 
-        const token = generateToken(id);
+        const token = generateToken({
+            id: id,
+            role: role
+        });
 
         const cypherPassword = await hash(password)
 

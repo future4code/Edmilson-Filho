@@ -4,7 +4,43 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Ed",
+    "name": "Ed3",
+    "email": "Ed3@gmail.com",
+    "password": "Ed12345"
+}
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
     "email": "Ed@gmail.com",
     "password": "Ed12345"
+}
+
+###
+
+GET http://localhost:3003/user
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyM2NiYWYzLWM0ZDktNDExZS1hMTMzLWQ4ZDQyNjQ2YzY2YyIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2MTIyODQ4MDgsImV4cCI6MTYxMjI4NDg2OH0.T8gkBsiEKYgvluRN5NgZPi06TxXMtlVB1gjtby2ktYQ
+
+###
+
+POST http://localhost:3003/recipe
+Content-Type: application/json
+
+{
+    "title": "Torta de sorvete e brigadeiro na travessa",
+    "description": "Em uma tigela, misture o biscoito, a margarina e a clara até formar uma farofa úmida. Forre o fundo de um refratário redondo, apertando com os dedos. Leve ao forno médio, preaquecido, por 8 minutos ou até assar e dourar. Retire e reserve. Em uma panela, leve o leite condensado, o chocolate e a manteiga ao fogo médio, mexendo até engrossar. Desligue, deixe amornar e misture com o creme de leite. Disponha o sorvete sobre a massa e espalhe brigadeiro por cima, às colheradas, mesclando. Leve ao congelador por 4 horas. Decore com granulado, cerejas e sirva.",
+    "date": "02/02/2021"
+}
+###
+
+POST http://localhost:3003/follow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyM2NiYWYzLWM0ZDktNDExZS1hMTMzLWQ4ZDQyNjQ2YzY2YyIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2MTIyODQ4MDgsImV4cCI6MTYxMjI4NDg2OH0.T8gkBsiEKYgvluRN5NgZPi06TxXMtlVB1gjtby2ktYQ
+
+{
+    "userId": "00f82fa1-33ae-4ec8-b24e-706ef51fffe5"
 }
