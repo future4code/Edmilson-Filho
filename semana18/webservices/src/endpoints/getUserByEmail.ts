@@ -3,8 +3,8 @@ import { generateToken } from '../services/generateToken';
 import { selectUserByEmail } from '../data/selectUserByEmail';
 var bcrypt = require('bcryptjs');
 
-export const getUserByEmail = async (req: Request, res: Response) => {
-    try {
+export async function getUserByEmail (req: Request, res: Response): Promise<void> {
+
         const { email, password } = req.body;
 
         if (!email || !password) {
@@ -20,7 +20,9 @@ export const getUserByEmail = async (req: Request, res: Response) => {
             "password": password
         }
 
+        console.log("User", userData.email)
         const user = await selectUserByEmail(userData.email);
+        console.log("User", user)
 
         const validPassword = bcrypt.compare(userData.password, user.password);
 
@@ -42,15 +44,12 @@ export const getUserByEmail = async (req: Request, res: Response) => {
         
         const token = generateToken({
             id: user.id,
-            role: user.role
+            role: user.role,
+            cep: user.cep
         });
         
         res.status(200).send({
             token
         });
-    } catch (err) {
-        res.status(400).send({
-            message: err.message
-        });
-    }
+
 }

@@ -2,13 +2,13 @@ import { Request, Response } from 'express';
 import { deleteUser } from '../data/deleteUser';
 import { getData } from '../services/getData';
 
-export const removeUser = async (req: Request, res: Response): Promise<void> => {
+export async function removeUser (req: Request, res: Response): Promise<void> {
     try {
         const { id } = req.params;
 
         const { Authorization } = req.headers;
 
-        const userData = getData(Authorization as string);
+        const userData = await getData(Authorization as string);
 
         if (userData.role !== "admin") {
             throw new Error("Only a normal user can access this funcionality");

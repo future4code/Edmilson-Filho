@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
+import { getAddressByCep } from '../services/getAddressByCep';
 
 const URL = "http://viacep/ws/";
 
-export async function getAddressInfo (req: Request, res: Response) {
+export async function getAddressInfo (req: Request, res: Response): Promise<void> {
     let errorCode: number = 400;
 
     const { cep } = req.params;

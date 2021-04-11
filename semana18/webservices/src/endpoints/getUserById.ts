@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { getData } from '../services/getData';
 import { selectUserById } from '../data/selectUserById';
 
-export const getUserById = async (req: Request, res: Response) => {
+export async function getUserById (req: Request, res: Response): Promise<void> {
     try {        
         const { Authorization } = req.headers;
 
@@ -14,7 +14,7 @@ export const getUserById = async (req: Request, res: Response) => {
             throw new Error("Don't leave the field in blank.");
         }
 
-        const token = getData(Authorization as string);
+        const token = await getData(Authorization as string);
 
         const userData: any = await selectUserById(token);
 

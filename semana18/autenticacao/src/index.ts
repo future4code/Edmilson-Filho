@@ -3,9 +3,9 @@ import cors from 'cors';
 import { AddressInfo } from "net";
 import knex from 'knex';
 import dotenv from 'dotenv';
-import { getLoggedUser } from '../../criptografia/src/endpoints/getLoggedUser';
-import { createUser } from '../../criptografia/src/endpoints/createUser';
-import { getUserByEmail } from '../../criptografia/src/endpoints/getUserByEmail';
+import { getLoggedUser } from '../../autenticacao/src/endpoints/getLoggedUser';
+import { createUser } from '../../autenticacao/src/endpoints/createUser';
+import { getUserByEmail } from '../../autenticacao/src/endpoints/getUserByEmail';
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ export const connection: knex = knex({
     client: "mysql",
     connection: {
         host: process.env.DB_HOST,
-        port: 3306,
+        port: Number(process.env.DB_PORT || "3006"),
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME
@@ -28,7 +28,7 @@ app.post("/signup", createUser);
 app.get("/login", getUserByEmail);
 app.get("/user/profile", getLoggedUser);
 
-const server = app.listen(process.env.PORT || 3303, () => {
+const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
         const address = server.address() as AddressInfo;
         console.log(`Server is running in http://localhost:${address.port}`);

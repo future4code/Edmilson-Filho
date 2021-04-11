@@ -1,9 +1,10 @@
 import { connection } from ".."
+import { AuthenticationData } from "../types/types";
 import { UserData } from "../types/types";
 
-export async function deleteUser (id: string): Promise<UserData> {
+export const selectLoggedUser = async (id: AuthenticationData): Promise<UserData> => {
     const result: any = await connection
-    .delete()
+    .select("*")
     .from("User")
     .where({ id });
 

@@ -5,7 +5,8 @@ export enum ROLE {
 
 export type AuthenticationData = {
     id: string,
-    role: ROLE
+    role: ROLE,
+    cep: string
 };
 
 export type UserData = {
